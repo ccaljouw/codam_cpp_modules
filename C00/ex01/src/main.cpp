@@ -6,14 +6,14 @@
 /*   By: ccaljouw <ccaljouw@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/07/31 18:57:40 by ccaljouw      #+#    #+#                 */
-/*   Updated: 2023/08/01 17:16:08 by ccaljouw      ########   odam.nl         */
+/*   Updated: 2023/08/01 19:17:08 by cariencaljo   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 #include "Contact.hpp"
 #include <string>
-#include <iostream> //remove
+#include <iostream>
 
 int main()
 {
@@ -25,7 +25,7 @@ int main()
 	std::cout << "Type 'ADD' to add a contact to your phonebook" << std::endl;
 	std::cout << "Type 'SEARCH' to search contacts in your phonebook" << std::endl;
 	std::cout << "Type 'EXIT' to leave this program, all your contacts will be destroyed" << std::endl;
-	std::cout << "----------------------------------------------------------------------" << std::endl;
+	std::cout << "----------------------------------------------------------------------" << std::endl << std::endl;
 	while (1)
 	{
 		std::cin >> input;
