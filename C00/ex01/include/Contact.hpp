@@ -6,12 +6,12 @@
 /*   By: ccaljouw <ccaljouw@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/07/31 18:51:55 by ccaljouw      #+#    #+#                 */
-/*   Updated: 2023/08/01 15:39:09 by ccaljouw      ########   odam.nl         */
+/*   Updated: 2023/08/01 17:19:41 by ccaljouw      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CONTACT_HPP_
-#	define CONTACT_HPP_
+# define CONTACT_HPP_
 
 #include <string>
 

@@ -6,7 +6,7 @@
 /*   By: ccaljouw <ccaljouw@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/07/31 18:51:47 by ccaljouw      #+#    #+#                 */
-/*   Updated: 2023/08/01 15:42:22 by ccaljouw      ########   odam.nl         */
+/*   Updated: 2023/08/01 17:18:54 by ccaljouw      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,10 @@
 #include <iostream>
 
 Contact::Contact(void) : _index(0) {
-	std::cout << "Contact constructor called" << std::endl;
 	return;
 }
 
 Contact::~Contact(void) {
-	std::cout << "Contact destructor called" << std::endl;
 	return;
 }
 
@@ -43,6 +41,8 @@ void	Contact::printContact(void) const{
 		std::cout << this->_phone_nr << std::endl;
 		std::cout << this->_secret << std::endl;
 	}
+	else
+		std::cout << "The index you provided is incorrect" << std::endl;
 	return;
 }
 

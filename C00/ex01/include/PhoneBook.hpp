@@ -6,7 +6,7 @@
 /*   By: ccaljouw <ccaljouw@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/07/31 18:51:58 by ccaljouw      #+#    #+#                 */
-/*   Updated: 2023/08/01 15:57:12 by ccaljouw      ########   odam.nl         */
+/*   Updated: 2023/08/01 17:29:09 by ccaljouw      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,15 @@ public:
 	~PhoneBook(void);
 	
 	void	addContact(void);
-	int		getNrContacts(void) const;
-	Contact	getContact(int i) const;
-	void	printPhonebook(void) const;
+	void	searchPhonebook(void) const;
 	
 private:
 
 	int		_nr_contacts;
 	Contact	_contacts[8];
+	
+	Contact	getContact(int i) const;
+	void	printPhonebook(void) const;
 };
 
 #endif
