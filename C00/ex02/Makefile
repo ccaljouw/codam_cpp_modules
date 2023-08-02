@@ -6,7 +6,7 @@
 #    By: ccaljouw <ccaljouw@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/07/31 14:38:22 by ccaljouw      #+#    #+#                  #
-#    Updated: 2023/08/02 10:56:38 by cariencaljo   ########   odam.nl          #
+#    Updated: 2023/08/02 17:38:29 by ccaljouw      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,11 +17,11 @@ BLUE	:= \033[34;1m
 RESET	:= \033[0m
 
 #//= Variables = //#
-NAME		= 
+NAME		= account
 CC			= c++
 CFLAGS		= -Wall -Wextra -Werror -std=c++98
 INCLUDE		= -I ./include
-OBJ_FILES	= $(addprefix obj/, Account.o test.o)
+OBJ_FILES	= $(addprefix obj/, Account.o tests.o)
 
 #//= Rules = //#
 all: $(NAME)
