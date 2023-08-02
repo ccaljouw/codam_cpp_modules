@@ -6,7 +6,7 @@
 /*   By: ccaljouw <ccaljouw@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/07/31 18:51:50 by ccaljouw      #+#    #+#                 */
-/*   Updated: 2023/08/02 15:38:26 by ccaljouw      ########   odam.nl         */
+/*   Updated: 2023/08/02 15:51:25 by ccaljouw      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,11 +44,10 @@ void	PhoneBook::searchPhonebook(void) const {
 	{
 		_printPhonebook();
 		std::cout << "Type the index of the contact you want to display: " << std::endl;
-		std::getline(std::cin, input);
-		if (std::cin.eof())
+		if (!std::getline(std::cin, input))
 		{
-			std::cin.clear();
-			std::cin.ignore();
+			std::cout << "Ctrl+D was pressed, exiting program" << std::endl;
+			exit(0);
 		}
 		if (input.length() == 1 && isdigit(input[0]))
 			i = std::stoi(input);

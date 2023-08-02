@@ -6,7 +6,7 @@
 /*   By: ccaljouw <ccaljouw@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/07/31 18:57:40 by ccaljouw      #+#    #+#                 */
-/*   Updated: 2023/08/02 15:37:18 by ccaljouw      ########   odam.nl         */
+/*   Updated: 2023/08/02 15:51:18 by ccaljouw      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,10 @@ int main()
 		std::cout << "Type 'SEARCH' to search contacts in your phonebook" << std::endl;
 		std::cout << "Type 'EXIT' to leave this program, all your contacts will be destroyed" << std::endl;
 		std::cout << std::setw(75) << std::setfill('-') << "-" << "\n" << std::endl;
-		std::getline(std::cin, input);
-		if (std::cin.eof())
+		if (!std::getline(std::cin, input))
 		{
-			std::cin.clear();
-			std::cin.ignore();
+			std::cout << "Ctrl+D was pressed, exiting program" << std::endl;
+			exit(0);
 		}
 		if (!input.compare("ADD"))
 			phonebook.addContact();

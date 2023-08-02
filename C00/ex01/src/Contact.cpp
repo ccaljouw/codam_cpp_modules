@@ -6,7 +6,7 @@
 /*   By: ccaljouw <ccaljouw@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/07/31 18:51:47 by ccaljouw      #+#    #+#                 */
-/*   Updated: 2023/08/02 15:41:00 by ccaljouw      ########   odam.nl         */
+/*   Updated: 2023/08/02 15:50:40 by ccaljouw      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,10 @@ std::string Contact::_getInput(std::string str) {
 	while (!input.length())
 	{
 		std::cout << std::setw(24) << std::setfill(' ') << std::left << str << std::flush;
-		std::getline(std::cin, input);
-		if (!input.length() || std::cin.eof())
+		if (!std::getline(std::cin, input))
 		{
-			std::cin.clear();
-			std::cin.ignore();
-			std::cout << "Invallid input please try again" << std::endl;
+			std::cout << "Ctrl+D was pressed, exiting program" << std::endl;
+			exit(0);
 		}
 	}
 	return (input);
