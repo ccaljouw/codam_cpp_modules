@@ -6,7 +6,7 @@
 /*   By: ccaljouw <ccaljouw@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/07/31 18:51:50 by ccaljouw      #+#    #+#                 */
-/*   Updated: 2023/08/02 14:56:38 by ccaljouw      ########   odam.nl         */
+/*   Updated: 2023/08/02 15:38:26 by ccaljouw      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,11 @@ void	PhoneBook::searchPhonebook(void) const {
 		_printPhonebook();
 		std::cout << "Type the index of the contact you want to display: " << std::endl;
 		std::getline(std::cin, input);
+		if (std::cin.eof())
+		{
+			std::cin.clear();
+			std::cin.ignore();
+		}
 		if (input.length() == 1 && isdigit(input[0]))
 			i = std::stoi(input);
 		while (i < 1 || i >= 8 || this->_contacts[i - 1].index == 0)
@@ -62,15 +67,15 @@ void	PhoneBook::_printPhonebook(void) const {
 	for (int i = 0; i < 8 && this->_contacts[i].index; i++)
 	{
 		std::cout << " | ";
-		std::cout << std::setw(10) << std::right << this->_contacts[i].index;
+		std::cout << std::setw(10) << std::setfill(' ') << std::right << this->_contacts[i].index;
 		std::cout << " | ";
-		std::cout << std::setw(10) << std::right << (this->_contacts[i].first_name.length() > 10 ? \
+		std::cout << std::setw(10) << std::setfill(' ') << std::right << (this->_contacts[i].first_name.length() > 10 ? \
 			this->_contacts[i].first_name.substr(0,9)+"." : this->_contacts[i].first_name);
 		std::cout << " | ";
-		std::cout << std::setw(10) << std::right << (this->_contacts[i].last_name.length() > 10 ? \
+		std::cout << std::setw(10) << std::setfill(' ') << std::right << (this->_contacts[i].last_name.length() > 10 ? \
 			this->_contacts[i].last_name.substr(0,9)+"." : this->_contacts[i].last_name);
 		std::cout << " | ";
-		std::cout << std::setw(10) << std::right << (this->_contacts[i].nickname.length() > 10 ? \
+		std::cout << std::setw(10) << std::setfill(' ') << std::right << (this->_contacts[i].nickname.length() > 10 ? \
 			this->_contacts[i].nickname.substr(0,9)+"." : this->_contacts[i].nickname);
 		std::cout << " | " << std::endl;
 		std::cout << std::endl;
