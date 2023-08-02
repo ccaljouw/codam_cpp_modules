@@ -6,7 +6,7 @@
 /*   By: ccaljouw <ccaljouw@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/07/31 18:57:40 by ccaljouw      #+#    #+#                 */
-/*   Updated: 2023/08/02 10:49:37 by cariencaljo   ########   odam.nl         */
+/*   Updated: 2023/08/02 14:47:43 by ccaljouw      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int main()
 	std::cout << std::setw(75) << std::setfill('-') << "\n" << std::endl;
 	while (1)
 	{
-		std::cin >> input;
+		std::getline(std::cin, input);
 		if (!input.compare("ADD"))
 			phonebook.addContact();
 		if (!input.compare("SEARCH"))
