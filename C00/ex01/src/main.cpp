@@ -6,7 +6,7 @@
 /*   By: ccaljouw <ccaljouw@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/07/31 18:57:40 by ccaljouw      #+#    #+#                 */
-/*   Updated: 2023/08/01 19:17:08 by cariencaljo   ########   odam.nl         */
+/*   Updated: 2023/08/02 10:49:37 by cariencaljo   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,20 @@
 #include "Contact.hpp"
 #include <string>
 #include <iostream>
+#include <iomanip>
 
 int main()
 {
 	std::string	input;
 	PhoneBook	phonebook;
 	
-	std::cout << std::endl << "----------------------------------------------------------------------" << std::endl;
-	std::cout << "This is your phonebook, it can do three things :)" << std::endl;
+	std::cout << std::endl;
+	std::cout << std::setw(75) << std::setfill('-') << "\n";
+	std::cout << "This is your phonebook, what do you want to do?" << std::endl << std::endl;
 	std::cout << "Type 'ADD' to add a contact to your phonebook" << std::endl;
 	std::cout << "Type 'SEARCH' to search contacts in your phonebook" << std::endl;
 	std::cout << "Type 'EXIT' to leave this program, all your contacts will be destroyed" << std::endl;
-	std::cout << "----------------------------------------------------------------------" << std::endl << std::endl;
+	std::cout << std::setw(75) << std::setfill('-') << "\n" << std::endl;
 	while (1)
 	{
 		std::cin >> input;
