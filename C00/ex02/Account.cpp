@@ -6,13 +6,14 @@
 /*   By: cariencaljouw <cariencaljouw@student.co      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/02 10:56:14 by cariencaljo   #+#    #+#                 */
-/*   Updated: 2023/08/02 17:43:11 by ccaljouw      ########   odam.nl         */
+/*   Updated: 2023/08/02 17:53:35 by ccaljouw      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Account.hpp"
 #include <ctime>
 #include <iostream>
+#include <iomanip>
 
 // public functions
 Account::Account( int initial_deposit ) {
@@ -70,9 +71,16 @@ void	Account::_displayTimestamp( void ) {
 	time_t	tt;
 	tm 		*ti;
 	
-	ti = localtime(&tt);
-	std::cout  << asctime(ti) << " " << ti->tm_year << "_" << ti->tm_mon << "_" << ti->tm_mday << "-" \
-			<< ti->tm_hour << "_" << ti->tm_min << "_" << ti->tm_sec;
-	//print timestamp format: [YYYYMMDD_HHMMSS]
+	ti = localtime(&tt); // get right time
+	std::cout << asctime(ti) << std::endl; // remove when time is correct
+	std::cout << "[";
+	std::cout << std::setw(4) << ti->tm_year + 1900;
+	std::cout << std::setw(2) << std::setfill('0') << ti->tm_mon + 1;
+	std::cout << std::setw(2) << std::setfill('0') << ti->tm_mday; 
+	std::cout << "_";
+	std::cout << std::setw(2) << std::setfill('0') << ti->tm_hour;
+	std::cout << std::setw(2) << std::setfill('0') << ti->tm_min;
+	std::cout << std::setw(2) << std::setfill('0') << ti->tm_sec;
+	std::cout << "]";
 	return ;
 }
