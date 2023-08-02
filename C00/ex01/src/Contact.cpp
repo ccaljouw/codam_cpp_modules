@@ -6,12 +6,11 @@
 /*   By: ccaljouw <ccaljouw@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/07/31 18:51:47 by ccaljouw      #+#    #+#                 */
-/*   Updated: 2023/08/02 15:50:40 by ccaljouw      ########   odam.nl         */
+/*   Updated: 2023/08/02 15:54:53 by ccaljouw      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include <string>
 #include <iomanip>
 #include "Contact.hpp"
 
@@ -32,7 +31,7 @@ std::string Contact::_getInput(std::string str) {
 		std::cout << std::setw(24) << std::setfill(' ') << std::left << str << std::flush;
 		if (!std::getline(std::cin, input))
 		{
-			std::cout << "Ctrl+D was pressed, exiting program" << std::endl;
+			std::cout << "Ctrl+D: exiting program" << std::endl;
 			exit(0);
 		}
 	}

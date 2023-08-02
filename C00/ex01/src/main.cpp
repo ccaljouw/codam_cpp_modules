@@ -6,7 +6,7 @@
 /*   By: ccaljouw <ccaljouw@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/07/31 18:57:40 by ccaljouw      #+#    #+#                 */
-/*   Updated: 2023/08/02 15:51:18 by ccaljouw      ########   odam.nl         */
+/*   Updated: 2023/08/02 15:54:12 by ccaljouw      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int main()
 		std::cout << std::setw(75) << std::setfill('-') << "-" << "\n" << std::endl;
 		if (!std::getline(std::cin, input))
 		{
-			std::cout << "Ctrl+D was pressed, exiting program" << std::endl;
+			std::cout << "Ctrl+D: exiting program" << std::endl;
 			exit(0);
 		}
 		if (!input.compare("ADD"))

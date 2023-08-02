@@ -6,7 +6,7 @@
 /*   By: ccaljouw <ccaljouw@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/07/31 18:51:50 by ccaljouw      #+#    #+#                 */
-/*   Updated: 2023/08/02 15:51:25 by ccaljouw      ########   odam.nl         */
+/*   Updated: 2023/08/02 16:07:11 by ccaljouw      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,10 @@ void	PhoneBook::searchPhonebook(void) const {
 	else
 	{
 		_printPhonebook();
-		std::cout << "Type the index of the contact you want to display: " << std::endl;
+		std::cout << "Give index of the contact you want to display: " << std::endl;
 		if (!std::getline(std::cin, input))
 		{
-			std::cout << "Ctrl+D was pressed, exiting program" << std::endl;
+			std::cout << "Ctrl+D: exiting program" << std::endl;
 			exit(0);
 		}
 		if (input.length() == 1 && isdigit(input[0]))
@@ -62,21 +62,25 @@ void	PhoneBook::searchPhonebook(void) const {
 	}
 }
 
+void	PhoneBook::_printColumn(std::string str) const {
+	std::string	print;
+
+	if (str.length() > 10)
+		print = str.substr(0, 9) + ".";
+	else
+		print = str;
+	std::cout << std::setw(10) << std::setfill(' ') << std::right << print << " | ";
+}
+
 void	PhoneBook::_printPhonebook(void) const {
 	for (int i = 0; i < 8 && this->_contacts[i].index; i++)
 	{
-		std::cout << " | ";
+		std::cout << "| ";
 		std::cout << std::setw(10) << std::setfill(' ') << std::right << this->_contacts[i].index;
 		std::cout << " | ";
-		std::cout << std::setw(10) << std::setfill(' ') << std::right << (this->_contacts[i].first_name.length() > 10 ? \
-			this->_contacts[i].first_name.substr(0,9)+"." : this->_contacts[i].first_name);
-		std::cout << " | ";
-		std::cout << std::setw(10) << std::setfill(' ') << std::right << (this->_contacts[i].last_name.length() > 10 ? \
-			this->_contacts[i].last_name.substr(0,9)+"." : this->_contacts[i].last_name);
-		std::cout << " | ";
-		std::cout << std::setw(10) << std::setfill(' ') << std::right << (this->_contacts[i].nickname.length() > 10 ? \
-			this->_contacts[i].nickname.substr(0,9)+"." : this->_contacts[i].nickname);
-		std::cout << " | " << std::endl;
+		_printColumn(this->_contacts[i].first_name);
+		_printColumn(this->_contacts[i].last_name);
+		_printColumn(this->_contacts[i].nickname);
 		std::cout << std::endl;
 	}
 }
