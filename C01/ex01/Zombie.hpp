@@ -1,38 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   PhoneBook.hpp                                      :+:    :+:            */
+/*   Zombie.hpp                                         :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: ccaljouw <ccaljouw@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2023/07/31 18:51:58 by ccaljouw      #+#    #+#                 */
-/*   Updated: 2023/08/03 13:38:13 by ccaljouw      ########   odam.nl         */
+/*   Created: 2023/08/03 13:50:57 by ccaljouw      #+#    #+#                 */
+/*   Updated: 2023/08/03 16:48:46 by ccaljouw      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_HPP_
-# define PHONEBOOK_HPP_
+#include <string>
 
-#include "Contact.hpp"
-
-class PhoneBook {
-
-public:
-
-	PhoneBook(void);
-	~PhoneBook(void);
+class Zombie {
 	
-	void		addContact(void);
-	void		searchPhonebook(void) const;
+	public:
 	
-private:
-
-	int			_nr_contacts;
-	Contact		_contacts[8];
+		Zombie( void );
+		Zombie(std::string name);
+		~Zombie( void );
+		
+		void announce( void ) const;
 	
-	Contact		_getContact(int i) const;
-	void		_printColumn(std::string str) const;
-	void		_printPhonebook(void) const;
+	private:
+	
+		std::string _name;
+	
 };
 
-#endif
+Zombie* newZombie( std::string name );
+void 	randomChump( std::string name );
+Zombie* zombieHorde( int N, std::string name );

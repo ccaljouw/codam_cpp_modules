@@ -6,12 +6,10 @@
 /*   By: ccaljouw <ccaljouw@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/07/31 18:51:47 by ccaljouw      #+#    #+#                 */
-/*   Updated: 2023/08/02 15:54:53 by ccaljouw      ########   odam.nl         */
+/*   Updated: 2023/08/03 13:37:46 by ccaljouw      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <iomanip>
 #include "Contact.hpp"
 
 Contact::Contact(void) : index(0) {

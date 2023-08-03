@@ -6,15 +6,11 @@
 /*   By: ccaljouw <ccaljouw@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/07/31 18:57:40 by ccaljouw      #+#    #+#                 */
-/*   Updated: 2023/08/02 15:54:12 by ccaljouw      ########   odam.nl         */
+/*   Updated: 2023/08/03 13:38:32 by ccaljouw      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
-#include "Contact.hpp"
-#include <string>
-#include <iostream>
-#include <iomanip>
 
 int main()
 {

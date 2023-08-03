@@ -6,13 +6,10 @@
 /*   By: ccaljouw <ccaljouw@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/07/31 18:51:50 by ccaljouw      #+#    #+#                 */
-/*   Updated: 2023/08/02 16:07:11 by ccaljouw      ########   odam.nl         */
+/*   Updated: 2023/08/03 13:37:57 by ccaljouw      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <string>
-#include <iomanip>
 #include "PhoneBook.hpp"
 
 PhoneBook::PhoneBook(void) : _nr_contacts(0) {
