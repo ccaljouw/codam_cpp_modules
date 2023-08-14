@@ -6,7 +6,7 @@
 #    By: ccaljouw <ccaljouw@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/08/03 13:51:30 by ccaljouw      #+#    #+#                  #
-#    Updated: 2023/08/03 13:52:40 by ccaljouw      ########   odam.nl          #
+#    Updated: 2023/08/13 18:37:31 by cariencaljo   ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,7 +43,7 @@ clean:
 fclean: clean
 	@rm -rf $(NAME)
 
-debug: -Wall -Wextra 
+debug: CFLAGS = -Wall -Wextra 
 debug: all
 
 re: fclean all

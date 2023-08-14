@@ -6,7 +6,7 @@
 #    By: ccaljouw <ccaljouw@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/08/03 13:51:30 by ccaljouw      #+#    #+#                  #
-#    Updated: 2023/08/03 16:47:18 by ccaljouw      ########   odam.nl          #
+#    Updated: 2023/08/13 18:37:36 by cariencaljo   ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,12 +17,12 @@ BLUE	:= \033[34;1m
 RESET	:= \033[0m
 
 #//= Variables = //#
-NAME		= 
+NAME		= zombiehorde
 CC			= c++
 CFLAGS		= -Wall -Wextra -Werror -std=c++98
 INCLUDE		= ./include
 HEADERS		= 
-OBJ_FILES	= $(addprefix obj/, )
+OBJ_FILES	= $(addprefix obj/, main.o Zombie.o zombieHorde.o)
 
 
 all: $(NAME)
@@ -43,7 +43,7 @@ clean:
 fclean: clean
 	@rm -rf $(NAME)
 
-debug: -Wall -Wextra 
+debug: CFLAGS = -Wall -Wextra 
 debug: all
 
 re: fclean all
