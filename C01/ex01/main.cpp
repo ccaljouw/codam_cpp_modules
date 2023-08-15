@@ -6,7 +6,7 @@
 /*   By: ccaljouw <ccaljouw@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/03 16:48:01 by ccaljouw      #+#    #+#                 */
-/*   Updated: 2023/08/15 14:57:57 by ccaljouw      ########   odam.nl         */
+/*   Updated: 2023/08/15 20:11:03 by cariencaljo   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void leaks(void)
 {
-	system("leaks zombiehorde");
+	system("leaks zombiehorde -q");
 }
 
 int main(void)

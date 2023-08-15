@@ -6,15 +6,21 @@
 /*   By: ccaljouw <ccaljouw@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/15 15:12:04 by ccaljouw      #+#    #+#                 */
-/*   Updated: 2023/08/15 17:27:59 by ccaljouw      ########   odam.nl         */
+/*   Updated: 2023/08/15 20:11:19 by cariencaljo   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "HumanA.hpp"
 #include "HumanB.hpp"
 
+void	leaks(void)
+{
+	system("leaks violence -q");
+}
+
 int main(void)
 {	
+	atexit(leaks);
 	{
 		Weapon club = Weapon("nasty spiky thing");
 		

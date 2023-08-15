@@ -6,7 +6,7 @@
 /*   By: ccaljouw <ccaljouw@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/15 15:16:40 by ccaljouw      #+#    #+#                 */
-/*   Updated: 2023/08/15 17:27:16 by ccaljouw      ########   odam.nl         */
+/*   Updated: 2023/08/15 20:08:45 by cariencaljo   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,13 @@ class HumanB {
 		HumanB( std::string name );
 		~HumanB( void );
 
-		void	setWeapon( Weapon myWeapon );
+		void	setWeapon( Weapon& myWeapon );
 		void	attack( void ) const;
 		
 	private:
 
 		std::string _name;
-		Weapon		_myWeapon;
+		Weapon*		_myWeapon;
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: ccaljouw <ccaljouw@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/15 15:16:37 by ccaljouw      #+#    #+#                 */
-/*   Updated: 2023/08/15 17:31:35 by ccaljouw      ########   odam.nl         */
+/*   Updated: 2023/08/15 18:31:28 by cariencaljo   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,7 @@ class HumanA {
 	
 	public:
 		
-		HumanA( void );
-		HumanA( std::string name, Weapon myWeapon );
+		HumanA( std::string name, Weapon& myWeapon );
 		~HumanA( void );
 
 		void	attack( void ) const;
@@ -29,7 +28,7 @@ class HumanA {
 	private:
 
 		std::string _name;
-		Weapon		_myWeapon;
+		Weapon&	_myWeapon;
 };
 
 #endif
