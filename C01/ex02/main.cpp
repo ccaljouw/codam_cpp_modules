@@ -6,26 +6,27 @@
 /*   By: ccaljouw <ccaljouw@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/03 16:48:01 by ccaljouw      #+#    #+#                 */
-/*   Updated: 2023/08/15 14:57:57 by ccaljouw      ########   odam.nl         */
+/*   Updated: 2023/08/15 15:05:05 by ccaljouw      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
-
-void leaks(void)
-{
-	system("leaks zombiehorde");
-}
+#include <string>
+#include <iostream>
 
 int main(void)
 {	
-	Zombie *first;
-	int nr_zombies = 10;
+	std::string str = "HI THIS IS BRAIN";
+	std::string* stringPTR = &str;
+	std::string& stringREF = str;
 
-	atexit(leaks);
-	first = zombieHorde(nr_zombies, "hordeZombie");
-	for(int i = 0; i < nr_zombies; i++)
-		first[i].announce();
-	delete [] first;
+	std::cout << "--------------" << std::endl;
+	std::cout << &str << std::endl;
+	std::cout << stringPTR << std::endl;
+	std::cout << &stringREF << std::endl;
+	std::cout << "--------------" << std::endl;
+	std::cout << str << std::endl;
+	std::cout << *stringPTR << std::endl;
+	std::cout << stringREF << std::endl;
+	std::cout << "--------------" << std::endl;
 	return 0;
 }

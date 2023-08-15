@@ -6,7 +6,7 @@
 /*   By: ccaljouw <ccaljouw@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/03 16:48:08 by ccaljouw      #+#    #+#                 */
-/*   Updated: 2023/08/13 18:55:06 by cariencaljo   ########   odam.nl         */
+/*   Updated: 2023/08/15 14:44:43 by ccaljouw      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,3 @@ Zombie* zombieHorde(int N, std::string name)
 	return zombieHorde;
 }
 
-void	deleteZombieHorde( int N, Zombie* first )
-{
-	for(int i = 0; i < N; i++)
-		first[i].~Zombie();
-	return;
-}

@@ -6,7 +6,7 @@
 /*   By: ccaljouw <ccaljouw@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/03 13:50:57 by ccaljouw      #+#    #+#                 */
-/*   Updated: 2023/08/13 18:53:36 by cariencaljo   ########   odam.nl         */
+/*   Updated: 2023/08/15 14:44:46 by ccaljouw      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,5 @@ class Zombie {
 };
 
 Zombie* zombieHorde( int N, std::string name );
-void	deleteZombieHorde( int N, Zombie* first );
 
 #endif
