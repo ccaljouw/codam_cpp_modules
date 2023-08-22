@@ -6,7 +6,7 @@
 /*   By: ccaljouw <ccaljouw@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/16 15:15:28 by ccaljouw      #+#    #+#                 */
-/*   Updated: 2023/08/22 12:13:13 by cariencaljo   ########   odam.nl         */
+/*   Updated: 2023/08/22 12:23:17 by cariencaljo   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,6 @@
 				break;
 		}
 		switch (i) {
-			case 4:
-				std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
-				break;
 			case 0:
 				(this->*ptr[i++])();
 				std::cout << std::endl;
@@ -48,6 +45,9 @@
 			case 3:
 				(this->*ptr[i])();
 				std::cout << std::endl;
+				break;
+			default:
+				std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
 		}
 		return;
 	}
