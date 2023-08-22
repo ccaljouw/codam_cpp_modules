@@ -6,7 +6,7 @@
 #    By: ccaljouw <ccaljouw@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/08/16 11:12:42 by ccaljouw      #+#    #+#                  #
-#    Updated: 2023/08/22 11:36:21 by cariencaljo   ########   odam.nl          #
+#    Updated: 2023/08/22 11:38:13 by cariencaljo   ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ BLUE	:= \033[34;1m
 RESET	:= \033[0m
 
 #//= Variables = //#
-NAME		= harl
+NAME		= harlFilter
 CC			= c++
 CFLAGS		= -Wall -Wextra -Werror -std=c++98
 INCLUDE		= ./include
