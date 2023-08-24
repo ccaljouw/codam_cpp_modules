@@ -1,11 +1,11 @@
-The orthodox canonical class form (before C++11)
+// The orthodox canonical class form (before C++11)
 
-In C++98 and C++03 the OCCF had four different methods that the C++ compiler is willing to generate:
+// In C++98 and C++03 the OCCF had four different methods that the C++ compiler is willing to generate:
 
-Default constructor
-Copy constructor
-Destructor
-Copy assignment operator
+// Default constructor
+// Copy constructor
+// Destructor
+// Assignment operator
 
 class A final
 {
@@ -15,3 +15,16 @@ class A final
       ~A ();
       A & operator = (const A &a);
 };
+
+// copy constructor: 
+// A copy constructor is used to initialize a previously uninitialized object from some other objects data.
+Sample(const Sample& t) {
+    this.data = t.data
+}
+
+// Assignment operator:
+// An assignment operator is used to replace the data of a previously initialized object with some other objects data.  
+Sample&  operator=(const Sample& t) {
+	this.data = t.data;
+	return *this;
+} 	
