@@ -6,7 +6,7 @@
 /*   By: cariencaljouw <cariencaljouw@student.co      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/23 14:31:27 by cariencaljo   #+#    #+#                 */
-/*   Updated: 2023/08/25 14:55:34 by cariencaljo   ########   odam.nl         */
+/*   Updated: 2023/08/25 15:02:27 by cariencaljo   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -146,18 +146,18 @@ Fixed	Fixed::operator--( int ) {
 //--------------------------------------------
 
 Fixed&	Fixed::min(Fixed& a, Fixed& b) {
-	return (a > b ? a: b);
+	return (a < b ? a: b);
 }
 
 const Fixed&	Fixed::min(const Fixed& a, const Fixed& b) {
-	return (a > b ? a: b);
+	return (a < b ? a: b);
 }
 
 Fixed&	Fixed::max(Fixed& a, Fixed& b) {
-	return (a < b ? a: b);
+	return (a > b ? a: b);
 }
 
 const Fixed&	Fixed::max(const Fixed& a, const Fixed& b) {
-	return (a < b ? a: b);
+	return (a > b ? a: b);
 }
 
