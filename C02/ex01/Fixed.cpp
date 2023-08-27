@@ -6,7 +6,7 @@
 /*   By: cariencaljouw <cariencaljouw@student.co      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/23 14:31:27 by cariencaljo   #+#    #+#                 */
-/*   Updated: 2023/08/24 15:25:36 by cariencaljo   ########   odam.nl         */
+/*   Updated: 2023/08/25 08:38:16 by cariencaljo   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,12 @@ Fixed::Fixed( void ) : _fixedPointValue(0) {
 	return;
 }
 
-Fixed::Fixed( const int num ) : _fixedPointValue( num << _fractionalBits) {
+Fixed::Fixed( const int num ) : _fixedPointValue(num << _fractionalBits) {
 	std::cout << "Int constructor called" << std::endl;
 	return;
 }
 
-Fixed::Fixed( const float num ) : _fixedPointValue( std::roundf( num * (1 << _fractionalBits))) {
+Fixed::Fixed( const float num ) : _fixedPointValue((int)std::roundf(num * (1 << _fractionalBits))) {
 	std::cout << "Float constructor called" << std::endl;
 	return;
 }
@@ -56,14 +56,13 @@ void	Fixed::setRawBits( int const raw ) {
 }
 
 float	Fixed::toFloat( void ) const {
-	return static_cast<float>( this->getRawBits()) / (1 << _fractionalBits);
+	return (float)(this->getRawBits()) / (1 << _fractionalBits);
 }
 
 int		Fixed::toInt( void ) const {
 	return this->_fixedPointValue >> _fractionalBits;
 }
 
-std::ostream& operator<<( std::ostream& o, Fixed const& i) {
+std::ostream& operator<<(std::ostream& o, Fixed const& i) {
 	return o << i.toFloat();
 }
-
