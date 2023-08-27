@@ -6,7 +6,7 @@
 /*   By: cariencaljouw <cariencaljouw@student.co      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/25 15:09:32 by cariencaljo   #+#    #+#                 */
-/*   Updated: 2023/08/27 16:35:03 by cariencaljo   ########   odam.nl         */
+/*   Updated: 2023/08/27 16:41:10 by cariencaljo   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ float	area(Point const& p1, Point const& p2, Point const& p3) {
 }
 
 // if the given point is inside the triangle the total area will be equal to the 
-// 3 areas of the give point with the other coordinates.
+// 3 triangles the given point forms with the other coordinates.
 bool bsp( Point const a, Point const b, Point const c, Point const point) {
 	float A = area(a, b, c);
 	float a1 = area(point, b, c);
