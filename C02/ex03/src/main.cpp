@@ -6,7 +6,7 @@
 /*   By: cariencaljouw <cariencaljouw@student.co      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/23 14:31:32 by cariencaljo   #+#    #+#                 */
-/*   Updated: 2023/08/27 16:58:37 by cariencaljo   ########   odam.nl         */
+/*   Updated: 2023/08/27 19:18:13 by cariencaljo   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,53 +20,38 @@
 				  /     \
 				 /       \ 
 				/		  \
-			   /           \		 P1(30, 10)
+			   /           \		 P1(30, 10)			P1 not inside
 			  /				\		
 			 /				 \		
 			/				  \		
 		   /				   \	
-		  /			P2(15, 5)   \	
+		  /			P2(15, 5)   \						P2 inside
 		 /						 \	
 		/						  \	
        /						   \
 	  /								\
-A(0,0) -----P3(8, 0)----------------- C(30,0)
-					P4(15, -3)
+A(0,0) -----P3(8, 0)----------------- C(30,0)			P3 inside
+					P4(15, -3)							P4 not inside
 */
 
 int main( void )
 {
-	float	P1_x = 30;
-	float	P1_y = 10;
+	Point	A;
+	Point	B(Fixed(15), Fixed(15));
+	Point	C(Fixed(30), Fixed());
+	Point	P[4] = {
+		Point(Fixed(30), Fixed(10)), 
+		Point(Fixed(15.0f), Fixed(5.0f)), 
+		Point(Fixed(8), Fixed(0)), 
+		Point(Fixed(15.0f), Fixed(-3.0f))
+	};
 	
-	float	P2_x = 15;
-	float	P2_y = 5;
-
-	float	P3_x = 8;
-	float	P3_y = 0;
-
-	float	P4_x = 15;
-	float	P4_y = -3;
-	
-	if (bsp(Point(Fixed(0), Fixed(0)), Point(Fixed(10), Fixed(15)), Point(Fixed(30), Fixed(0)), Point(Fixed(P1_x), Fixed(P1_y))))
-    	std::cout << "P1 inside" << std::endl;
-	else
-		std::cout << "P1 not inside" << std::endl;
-		
-	if (bsp(Point(Fixed(0), Fixed(0)), Point(Fixed(10), Fixed(15)), Point(Fixed(30), Fixed(0)), Point(Fixed(P2_x), Fixed(P2_y))))
-    	std::cout << "P2 inside" << std::endl;
-	else
-		std::cout <<"P2 not inside" << std::endl;
-
-	if (bsp(Point(Fixed(0), Fixed(0)), Point(Fixed(10), Fixed(15)), Point(Fixed(30), Fixed(0)), Point(Fixed(P3_x), Fixed(P3_y))))
-    	std::cout << "P3 inside" << std::endl;
-	else
-		std::cout <<"P3 not inside" << std::endl;
-
-	if (bsp(Point(Fixed(0), Fixed(0)), Point(Fixed(10), Fixed(15)), Point(Fixed(30), Fixed(0)), Point(Fixed(P4_x), Fixed(P4_y))))
-    	std::cout << "P3 inside" << std::endl;
-	else
-		std::cout <<"P3 not inside" << std::endl;
-
+	for(int i = 0; i < 4; i++)
+	{
+		if (bsp(A, B, C, P[i]))
+    		std::cout << "P" << i + 1 << " inside" << std::endl;
+		else
+			std::cout << "P" << i + 1 << " not inside" << std::endl;
+	}
 	return 0;
 }

@@ -6,7 +6,7 @@
 /*   By: cariencaljouw <cariencaljouw@student.co      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/23 14:31:27 by cariencaljo   #+#    #+#                 */
-/*   Updated: 2023/08/25 16:45:38 by cariencaljo   ########   odam.nl         */
+/*   Updated: 2023/08/27 18:59:46 by cariencaljo   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,19 +30,19 @@ Fixed::Fixed( const float num ) : _fixedPointValue((int)std::roundf(num * (1 << 
 }
 
 Fixed::Fixed( const Fixed& rhs ) {
-	// std::cout << "Copy constructor called" << std::endl;
 	*this = rhs;
+	// std::cout << "Copy constructor called with value " << this->toFloat() << std::endl;
 	return;
 }
 
 Fixed::~Fixed( void ) {
-	// std::cout << "Destructor called" << std::endl;
+	// std::cout << "Destructor called on value " << this->toFloat() << std::endl;
 	return;
 }
 
 Fixed&  Fixed::operator=( const Fixed& rhs ) {
-	// std::cout << "Copy assignment operator called" << std::endl;
 	this->_fixedPointValue = rhs.getRawBits();
+	// std::cout << "Copy assignment operator called with value " << this->toFloat() << std::endl;
 	return *this;
 }
 

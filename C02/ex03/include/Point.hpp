@@ -6,7 +6,7 @@
 /*   By: cariencaljouw <cariencaljouw@student.co      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/25 15:09:54 by cariencaljo   #+#    #+#                 */
-/*   Updated: 2023/08/27 15:24:43 by cariencaljo   ########   odam.nl         */
+/*   Updated: 2023/08/27 19:09:34 by cariencaljo   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,18 +19,18 @@ class Point {
 	
 	public:
 
-		Point();
+		Point(void);
 		Point(const Fixed& x, const Fixed& y);
 		Point(const Point& rhs);
 		~Point();
 	
 		Point& operator=(const Point& rhs);
 
-		Fixed getX( void ) const;
-		Fixed getY( void ) const;
-		
+		Fixed	getX( void ) const;
+		Fixed	getY( void ) const;
 		
 	private:
+	
 		Fixed const _x;
 		Fixed const _y;
 };
