@@ -6,7 +6,7 @@
 /*   By: cariencaljouw <cariencaljouw@student.co      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/25 15:09:37 by cariencaljo   #+#    #+#                 */
-/*   Updated: 2023/08/27 19:10:39 by cariencaljo   ########   odam.nl         */
+/*   Updated: 2023/08/27 19:19:32 by cariencaljo   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ Point::Point(const Fixed& x, const Fixed& y) : _x(x), _y(y) {
 }
 
 Point::Point(const Point& rhs) : _x(rhs.getX()), _y(rhs.getY()) {
-	*this = rhs;
 	return;
 }
 

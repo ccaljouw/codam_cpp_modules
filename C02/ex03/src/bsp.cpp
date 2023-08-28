@@ -6,13 +6,12 @@
 /*   By: cariencaljouw <cariencaljouw@student.co      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/25 15:09:32 by cariencaljo   #+#    #+#                 */
-/*   Updated: 2023/08/27 18:45:05 by cariencaljo   ########   odam.nl         */
+/*   Updated: 2023/08/27 19:21:23 by cariencaljo   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Point.hpp"
 #include <cmath>
-#include <iostream>
 
 float absolute(float n) {
 	return n < 0 ? (n * -1) : n; 	

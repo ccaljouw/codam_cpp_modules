@@ -6,7 +6,7 @@
 /*   By: cariencaljouw <cariencaljouw@student.co      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/23 14:31:32 by cariencaljo   #+#    #+#                 */
-/*   Updated: 2023/08/27 19:18:13 by cariencaljo   ########   odam.nl         */
+/*   Updated: 2023/08/27 19:29:55 by cariencaljo   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,10 @@ int main( void )
 	for(int i = 0; i < 4; i++)
 	{
 		if (bsp(A, B, C, P[i]))
-    		std::cout << "P" << i + 1 << " inside" << std::endl;
+    		std::cout << "\nP" << i + 1 << " inside" << std::endl;
 		else
-			std::cout << "P" << i + 1 << " not inside" << std::endl;
+			std::cout << "\nP" << i + 1 << " not inside" << std::endl;
 	}
+	std::cout << std::endl;
 	return 0;
 }

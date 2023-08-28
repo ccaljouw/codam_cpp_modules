@@ -6,7 +6,7 @@
 /*   By: cariencaljouw <cariencaljouw@student.co      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/28 12:14:51 by cariencaljo   #+#    #+#                 */
-/*   Updated: 2023/08/28 16:08:58 by cariencaljo   ########   odam.nl         */
+/*   Updated: 2023/08/28 16:33:31 by cariencaljo   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,16 @@ int	main( void )
 
 	std::cout << "--------------------------------------------------------" << std::endl;
 	
-	scav.attack("Frag");
-	frag.takeDamage(scav.getAttackDamage());
+	frag.attack("Scav");
+	scav.takeDamage(frag.getAttackDamage());
+	scav.getStatus();
+	frag.getStatus();
+	frag.attack("Scav");
+	frag.attack("Scav");
+	frag.attack("Scav");
+	scav.takeDamage(frag.getAttackDamage());
+	scav.takeDamage(frag.getAttackDamage());
+	scav.takeDamage(frag.getAttackDamage());
 	scav.getStatus();
 	frag.getStatus();
 	

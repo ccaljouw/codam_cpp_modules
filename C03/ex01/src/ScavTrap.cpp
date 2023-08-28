@@ -6,7 +6,7 @@
 /*   By: cariencaljouw <cariencaljouw@student.co      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/28 13:41:39 by cariencaljo   #+#    #+#                 */
-/*   Updated: 2023/08/28 15:55:20 by cariencaljo   ########   odam.nl         */
+/*   Updated: 2023/08/28 16:29:36 by cariencaljo   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,10 @@ void ScavTrap::attack( const std::string& target ) {
 }
 
 void ScavTrap::guardGate( void ) {
-	std::cout << "ScavTrap " << this->_name << " is now in gatekeeper mode" << std::endl;
+	if (_hitPoints && _energyPoints)
+		std::cout << "ScavTrap " << this->_name << " is now in gatekeeper mode" << std::endl;
+	else
+		std::cout <<"ScavTrap " << this->_name 
+			<< " does not have energy to go into gatekeeper mode" << std::endl;
 	return;
 }

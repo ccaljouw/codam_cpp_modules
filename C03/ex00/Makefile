@@ -5,8 +5,8 @@
 #                                                      +:+                     #
 #    By: cariencaljouw <cariencaljouw@student.co      +#+                      #
 #                                                    +#+                       #
-#    Created: 2023/08/28 13:00:44 by cariencaljo   #+#    #+#                  #
-#    Updated: 2023/08/28 13:00:58 by cariencaljo   ########   odam.nl          #
+#    Created: 2023/08/28 13:40:14 by cariencaljo   #+#    #+#                  #
+#    Updated: 2023/08/28 13:40:31 by cariencaljo   ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,20 +20,19 @@ RESET	:= \033[0m
 NAME		= claptrap
 CC			= c++
 CFLAGS		= -Wall -Wextra -Werror -std=c++98
-INCLUDE		= ./include
-HEADERS		= 
-OBJ_FILES	= $(addprefix obj/, main.o ClapTrap.o)
+INCLUDE		= -I ./include
+OBJ_FILES	= $(addprefix obj/, main.o ClapTrap.o ScavTrap.o bsp.o)
 
-
+#//= Rules = //#
 all: $(NAME)
 	
 $(NAME): $(OBJ_FILES)
-	@$(CC) $(OBJ_FILES) $(HEADERS) -o $(NAME) $(CFLAGS)
+	@$(CC) $(OBJ_FILES) -o $(NAME) $(CFLAGS)
 	
-$(OBJ_FILES): obj/%.o: %.cpp 
+$(OBJ_FILES): obj/%.o: src/%.cpp 
 	@mkdir -p $(dir $@)
 	@echo "$(GREEN)$(BOLD)Compiling $(NAME):$(RESET) $(notdir $<)"
-	@$(CC) -c $(CFLAGS) $(HEADERS) -o $@ $< 
+	@$(CC) -c $(CFLAGS) $(INCLUDE) -o $@ $< 
 
 clean:
 	@echo "$(BLUE)Cleaning $(NAME) $(RESET)"
@@ -44,7 +43,7 @@ fclean: clean
 	@rm -rf $(NAME)
 
 debug: CFLAGS = -Wall -Wextra 
-debug: all
+debug: re
 
 re: fclean all
 
