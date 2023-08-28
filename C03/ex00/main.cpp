@@ -6,7 +6,7 @@
 /*   By: cariencaljouw <cariencaljouw@student.co      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/28 12:14:51 by cariencaljo   #+#    #+#                 */
-/*   Updated: 2023/08/28 13:22:43 by cariencaljo   ########   odam.nl         */
+/*   Updated: 2023/08/28 13:35:44 by cariencaljo   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,13 @@ int	main( void )
 {
 	ClapTrap jan("Jan");
 	ClapTrap klaas("Klaas");
+	ClapTrap piet(jan);
 
 	std::cout << "--------------------------------------------------------" << std::endl;
 	
 	jan.getStatus();
 	klaas.getStatus();
+	piet.getStatus();
 
 	std::cout << "--------------------------------------------------------" << std::endl;
 

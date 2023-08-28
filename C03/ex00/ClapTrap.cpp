@@ -6,7 +6,7 @@
 /*   By: cariencaljouw <cariencaljouw@student.co      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/28 12:15:18 by cariencaljo   #+#    #+#                 */
-/*   Updated: 2023/08/28 13:29:36 by cariencaljo   ########   odam.nl         */
+/*   Updated: 2023/08/28 13:36:47 by cariencaljo   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,7 @@ ClapTrap::ClapTrap( const std::string name ) : _name(name), _hitPoints(10),
 }
 
 ClapTrap::ClapTrap( const ClapTrap& rhs ) {
-	this->_name = rhs._name;
-	this->_hitPoints = rhs._hitPoints;
-	this->_energyPoints = rhs._energyPoints;
-	this->_attackDamage = rhs._attackDamage;
+	*this = rhs;
 	std::cout << "ClapTrap copy constructor called with name " 
 		<< this->_name << std::endl;
 	return;
@@ -39,7 +36,7 @@ ClapTrap& ClapTrap::operator=( const ClapTrap& rhs ) {
 	this->_hitPoints = rhs._hitPoints;
 	this->_energyPoints = rhs._energyPoints;
 	this->_attackDamage = rhs._attackDamage;
-	std::cout << "ClapTrap copy assignment constructor called with name " 
+	std::cout << "ClapTrap assignment operator called with name " 
 		<< this->_name << std::endl;
 	return *this;
 }
@@ -91,7 +88,7 @@ void ClapTrap::beRepaired( unsigned int amount ) {
 	return;
 }
 
-void ClapTrap::getStatus( void ) {
+void ClapTrap::getStatus( void ) const {
 	std::cout << "\n" << this->_name << " has " << this->_energyPoints 
 		<< " energy points and " << this->_hitPoints << " hitpoints." << std::endl;
 	if (this->_hitPoints && this->_energyPoints)
@@ -102,6 +99,6 @@ void ClapTrap::getStatus( void ) {
 	return;
 }
 
-unsigned int ClapTrap::getAttackDamage( void ) {
+unsigned int ClapTrap::getAttackDamage( void ) const {
 	return this->_attackDamage;
 }

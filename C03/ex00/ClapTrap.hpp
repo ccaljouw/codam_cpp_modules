@@ -6,7 +6,7 @@
 /*   By: cariencaljouw <cariencaljouw@student.co      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/28 12:15:21 by cariencaljo   #+#    #+#                 */
-/*   Updated: 2023/08/28 13:14:43 by cariencaljo   ########   odam.nl         */
+/*   Updated: 2023/08/28 13:31:45 by cariencaljo   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ class ClapTrap {
 		void takeDamage( unsigned int amount );
 		void beRepaired( unsigned int amount );
 		
-		void 			getStatus( void );
-		unsigned int	getAttackDamage( void );
+		void 			getStatus( void ) const;
+		unsigned int	getAttackDamage( void ) const;
 		
 	private:
 		
