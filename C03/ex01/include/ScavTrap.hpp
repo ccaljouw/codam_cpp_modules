@@ -6,7 +6,7 @@
 /*   By: cariencaljouw <cariencaljouw@student.co      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/28 13:40:52 by cariencaljo   #+#    #+#                 */
-/*   Updated: 2023/08/28 15:47:55 by cariencaljo   ########   odam.nl         */
+/*   Updated: 2023/08/28 15:52:44 by cariencaljo   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,7 @@ class ScavTrap : public ClapTrap
 		~ScavTrap( void );
 
 		void attack( const std::string& target );
-
-	private:
+		void guardGate( void );
 };
 
 #endif

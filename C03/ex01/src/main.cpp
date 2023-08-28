@@ -6,7 +6,7 @@
 /*   By: cariencaljouw <cariencaljouw@student.co      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/28 12:14:51 by cariencaljo   #+#    #+#                 */
-/*   Updated: 2023/08/28 15:51:07 by cariencaljo   ########   odam.nl         */
+/*   Updated: 2023/08/28 15:54:36 by cariencaljo   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,10 @@ int	main( void )
 	jan.getStatus();
 	klaas.getStatus();
 	
+	std::cout << "--------------------------------------------------------" << std::endl;
+
+	scav.guardGate();
+
 	std::cout << "--------------------------------------------------------" << std::endl;
 	return 0;
 }
