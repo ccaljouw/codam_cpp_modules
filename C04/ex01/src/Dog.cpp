@@ -6,7 +6,7 @@
 /*   By: ccaljouw <ccaljouw@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/30 10:55:16 by ccaljouw      #+#    #+#                 */
-/*   Updated: 2023/08/30 15:29:46 by cariencaljo   ########   odam.nl         */
+/*   Updated: 2023/08/30 15:59:37 by cariencaljo   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,8 @@ Dog::Dog( std::string type ) : Animal(type) {
 }
 
 Dog::Dog( Dog const& rhs) {
-	*this = rhs;
+	this->_type = rhs.getType();
+	this->_brain = new Brain();
 	this->_brain->setIdeas(rhs._brain->getIdeas());
 	std::cout << "Dog copy constructor called with type " << this->_type << std::endl;
 	return;

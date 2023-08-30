@@ -6,7 +6,7 @@
 /*   By: ccaljouw <ccaljouw@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/30 10:48:41 by ccaljouw      #+#    #+#                 */
-/*   Updated: 2023/08/30 13:52:48 by ccaljouw      ########   odam.nl         */
+/*   Updated: 2023/08/30 16:01:47 by cariencaljo   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,20 @@
 
 int main( void ) {
 	
+	{
+		const Cat* b = new Cat();
+		std::cout << "---------------------------------" << std::endl;
+		Cat	newCat(*b);
+		std::cout << "---------------------------------" << std::endl;
+		delete b;
+		std::cout << "---------------------------------" << std::endl;
+		const Dog* a = new Dog();
+		std::cout << "---------------------------------" << std::endl;
+		Dog	newDog(*a);
+		std::cout << "---------------------------------" << std::endl;
+		delete a;
+		std::cout << "---------------------------------" << std::endl;
+	}
 	std::cout << "---------------------------------" << std::endl;
 	const Animal* a = new Dog();
 	const Animal* b = new Cat();

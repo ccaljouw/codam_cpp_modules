@@ -6,7 +6,7 @@
 /*   By: ccaljouw <ccaljouw@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/30 13:24:18 by ccaljouw      #+#    #+#                 */
-/*   Updated: 2023/08/30 15:44:45 by cariencaljo   ########   odam.nl         */
+/*   Updated: 2023/08/30 15:48:18 by cariencaljo   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ Brain::Brain( void ) {
 Brain::Brain( Brain const& rhs ) {
 	*this = rhs;
 	std::cout << "Brain copy constructor called" << std::endl;
-	return;	
+	return;
 }
 
 Brain const& Brain::operator=(Brain const& rhs ) {
