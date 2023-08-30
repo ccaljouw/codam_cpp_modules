@@ -6,7 +6,7 @@
 #    By: cariencaljouw <cariencaljouw@student.co      +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/08/28 13:00:44 by cariencaljo   #+#    #+#                  #
-#    Updated: 2023/08/28 18:18:34 by cariencaljo   ########   odam.nl          #
+#    Updated: 2023/08/30 10:33:26 by ccaljouw      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,8 +21,8 @@ NAME		= diamondtrap
 CC			= c++
 CFLAGS		= -Wall -Wextra -Werror -Wpedantic -Wshadow -Wnon-virtual-dtor -Wold-style-cast -Wcast-align -Wzero-as-null-pointer-constant \
 				-Wunused -Woverloaded-virtual -Wpedantic -Wconversion -Wsign-conversion -Wfloat-conversion -Wformat=2 -Werror=vla \
-				-Wmisleading-indentation -Wnull-dereference -std=c++98
-INCLUDE		= -I ./include
+				-Wnull-dereference -std=c++98
+INCLUDE		= -I include/
 OBJ_FILES	= $(addprefix obj/, main.o ClapTrap.o ScavTrap.o FragTrap.o DiamondTrap.o)
 
 
