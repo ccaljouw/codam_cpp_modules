@@ -6,11 +6,11 @@
 /*   By: cariencaljouw <cariencaljouw@student.co      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/28 13:41:39 by cariencaljo   #+#    #+#                 */
-/*   Updated: 2023/08/28 18:20:51 by cariencaljo   ########   odam.nl         */
+/*   Updated: 2023/08/30 10:45:47 by ccaljouw      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScavTrap.hpp"
+#include "../include/ScavTrap.hpp"
 #include <iostream>
 
 ScavTrap::ScavTrap( void ) {

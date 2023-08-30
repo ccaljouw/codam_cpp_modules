@@ -6,11 +6,11 @@
 /*   By: cariencaljouw <cariencaljouw@student.co      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/28 15:57:08 by cariencaljo   #+#    #+#                 */
-/*   Updated: 2023/08/28 18:12:57 by cariencaljo   ########   odam.nl         */
+/*   Updated: 2023/08/30 10:45:32 by ccaljouw      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "FragTrap.hpp"
+#include "../include/FragTrap.hpp"
 #include <iostream>
 
 FragTrap::FragTrap( void ) {

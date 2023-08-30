@@ -3,10 +3,10 @@
 #                                                         ::::::::             #
 #    Makefile                                           :+:    :+:             #
 #                                                      +:+                     #
-#    By: cariencaljouw <cariencaljouw@student.co      +#+                      #
+#    By: ccaljouw <ccaljouw@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
-#    Created: 2023/08/28 13:00:44 by cariencaljo   #+#    #+#                  #
-#    Updated: 2023/08/30 13:22:38 by ccaljouw      ########   odam.nl          #
+#    Created: 2023/08/30 10:48:44 by ccaljouw      #+#    #+#                  #
+#    Updated: 2023/08/30 13:22:23 by ccaljouw      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,13 +17,13 @@ BLUE	:= \033[34;1m
 RESET	:= \033[0m
 
 #//= Variables = //#
-NAME		= diamondtrap
+NAME		= polymorphism
 CC			= c++
 CFLAGS		= -Wall -Wextra -Werror -Wpedantic -Wshadow -Wnon-virtual-dtor -Wold-style-cast -Wcast-align -Wzero-as-null-pointer-constant \
 				-Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wfloat-conversion -Wformat=2 -Werror=vla \
 				-Wnull-dereference -std=c++98
 INCLUDE		= -I include/
-OBJ_FILES	= $(addprefix obj/, main.o ClapTrap.o ScavTrap.o FragTrap.o DiamondTrap.o)
+OBJ_FILES	= $(addprefix obj/, main.o Animal.o Dog.o Cat.o WrongAnimal.o WrongCat.o)
 
 
 all: $(NAME)

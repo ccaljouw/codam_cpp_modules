@@ -28,3 +28,7 @@ Sample&  operator=(const Sample& t) {
 	this.data = t.data;
 	return *this;
 } 	
+
+// C03 ex03 why does the include not work correct?
+// include copy and assignment constructors?
+// lookup flags
