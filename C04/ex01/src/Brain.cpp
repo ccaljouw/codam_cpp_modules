@@ -6,7 +6,7 @@
 /*   By: ccaljouw <ccaljouw@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/30 13:24:18 by ccaljouw      #+#    #+#                 */
-/*   Updated: 2023/08/30 13:36:20 by ccaljouw      ########   odam.nl         */
+/*   Updated: 2023/08/30 15:44:45 by cariencaljo   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ Brain::Brain( Brain const& rhs ) {
 }
 
 Brain const& Brain::operator=(Brain const& rhs ) {
-	(void)rhs;  //moet nog aangepast!
+	this->setIdeas(rhs.getIdeas());
 	std::cout << "Brain assignment constructor called" << std::endl;
 	return *this;
 }
@@ -33,4 +33,12 @@ Brain const& Brain::operator=(Brain const& rhs ) {
 Brain::~Brain( void ) {
 	std::cout << "Default Brain destructor called" << std::endl;
 	return;
+}
+
+std::string const*	Brain::getIdeas( void ) const {
+	return this->_ideas;
+}
+
+void	Brain::setIdeas( std::string const* ideas ) {
+	std::copy(ideas, ideas + 100, this->_ideas);
 }

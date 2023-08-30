@@ -6,7 +6,7 @@
 /*   By: ccaljouw <ccaljouw@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/30 10:55:06 by ccaljouw      #+#    #+#                 */
-/*   Updated: 2023/08/30 13:32:58 by ccaljouw      ########   odam.nl         */
+/*   Updated: 2023/08/30 15:41:37 by cariencaljo   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,13 +30,16 @@ Cat::Cat( std::string type ) : Animal(type) {
 }
 
 Cat::Cat( Cat const& rhs) {
-	*this = rhs;
+	this->_type = rhs.getType();
+	this->_brain = new Brain();
+	this->_brain->setIdeas(rhs._brain->getIdeas());
 	std::cout << "Cat copy constructor called with type " << this->_type << std::endl;
 	return;
 }
 
 Cat const& Cat::operator=( Cat const& rhs) {
 	this->_type = rhs.getType();
+	this->_brain->setIdeas(rhs._brain->getIdeas());
 	std::cout << "Cat assignment constructor called with type " << this->_type << std::endl;
 	return *this;
 }
