@@ -6,7 +6,7 @@
 /*   By: cariencaljouw <cariencaljouw@student.co      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/30 17:12:56 by cariencaljo   #+#    #+#                 */
-/*   Updated: 2023/08/30 17:16:46 by cariencaljo   ########   odam.nl         */
+/*   Updated: 2023/08/31 14:32:56 by cariencaljo   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,10 @@
 
 #include "../include/AMateria.hpp"
 
-class Ice : AMateria
+class Ice : public AMateria
 {
 	public:
+		Ice( void );
 		Ice(std::string const& type);
 		Ice( Ice const& rhs);
 		Ice const& operator=( Ice const& rhs );

@@ -6,12 +6,18 @@
 /*   By: cariencaljouw <cariencaljouw@student.co      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/30 17:14:27 by cariencaljo   #+#    #+#                 */
-/*   Updated: 2023/08/30 18:33:29 by cariencaljo   ########   odam.nl         */
+/*   Updated: 2023/08/31 16:01:47 by cariencaljo   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/Cure.hpp"
 #include <iostream>
+
+Cure::Cure( void ) : AMateria() {
+	this->_type = "cure";
+	std::cout << "Cure constructor called with type " << this->_type << std::endl;
+	return;
+}
 
 Cure::Cure(std::string const& type) : AMateria(type) {
 	this->_type = "cure";
@@ -26,6 +32,7 @@ Cure::Cure( Cure const& rhs) : AMateria() {
 }
 
 Cure const& Cure::operator=( Cure const& rhs ) {
+	(void)rhs; //??
 	this->_type = "cure";
 	std::cout << "Cure copy assignment constructor called with type " << this->_type << std::endl;
 	return *this;

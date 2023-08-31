@@ -6,7 +6,7 @@
 /*   By: cariencaljouw <cariencaljouw@student.co      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/30 19:43:24 by cariencaljo   #+#    #+#                 */
-/*   Updated: 2023/08/30 19:50:49 by cariencaljo   ########   odam.nl         */
+/*   Updated: 2023/08/31 13:43:56 by cariencaljo   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 # define _MATERIASOURCE_HPP_
 
 #include <string>
-#include "../include/AMateria.hpp"
+#include "../include/IMateriaSource.hpp"
 
-class MateriaSource
+class MateriaSource : public IMateriaSource
 {
 	public:
 	
-		MateriaSource(std::string type);
+		MateriaSource(void);
 		MateriaSource(MateriaSource const& rhs);
 		MateriaSource const& operator=(MateriaSource const& rhs);
 		~MateriaSource(void);

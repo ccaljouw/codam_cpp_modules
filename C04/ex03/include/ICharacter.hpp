@@ -6,7 +6,7 @@
 /*   By: cariencaljouw <cariencaljouw@student.co      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/30 16:54:07 by cariencaljo   #+#    #+#                 */
-/*   Updated: 2023/08/30 17:10:44 by cariencaljo   ########   odam.nl         */
+/*   Updated: 2023/08/31 18:03:13 by cariencaljo   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,12 @@
 #include <iostream>
 #include "../include/AMateria.hpp"
 
+class AMateria;
+
 class ICharacter {
 
 	public:
+		ICharacter();
 		virtual ~ICharacter();
 		virtual std::string const & getName() const = 0;
 		virtual void equip(AMateria* m) = 0;

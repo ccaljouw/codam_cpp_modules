@@ -6,11 +6,13 @@
 /*   By: cariencaljouw <cariencaljouw@student.co      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/30 17:06:58 by cariencaljo   #+#    #+#                 */
-/*   Updated: 2023/08/30 19:41:59 by cariencaljo   ########   odam.nl         */
+/*   Updated: 2023/08/31 23:11:58 by cariencaljo   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/Character.hpp"
+#include "../include/Ice.hpp"
+#include "../include/Cure.hpp"
 
 Character::Character( void ) {
 	for (int i = 0; i < 4; i++)
@@ -50,11 +52,16 @@ Character const& Character::operator=( Character const& rhs ) {
 }
 
 Character::~Character( void ) {
+	std::cout << "Character destructor called on " << this->getName() << std::endl;
 	for(int i = 0; i < 4; i++) {
-		if (this->_inventory[i])
-			delete this->_inventory[i];
+		for(int j = 3; j >= 0; j--) {
+			if (this->_inventory[i] == this->_inventory[j]) {
+				if (i == j)
+					delete this->_inventory[i];
+				this->_inventory[j] = NULL;
+			}
+		}
 	}
-	std::cout << "Default Character destructor called" << std::endl;
 	return;
 }
 
@@ -65,18 +72,16 @@ std::string const & Character::getName( void ) const {
 void Character::equip(AMateria* m) {
 	for(int i = 0; i < 4; i++) {
 		if (!this->_inventory[i]) {
+			std::cout << "equipping " << this->getName() << " with " << m->getType() << std::endl;
 			this->_inventory[i] = m;
-			break;
+			return;
 		}
 	}
-	// what if full?
+	std::cout << this->getName() << " already fully equiped, dropping " << m->getType() << std::endl;
 	return;
 }
 
 void Character::unequip(int idx) {
-	if (this->_inventory[idx]) {
-		// what to do??
-	}
 	this->_inventory[idx] = NULL;
 	return;
 }
@@ -84,8 +89,6 @@ void Character::unequip(int idx) {
 void Character::use(int idx, ICharacter& target) {
 	if (this->_inventory[idx]) {
 		this->_inventory[idx]->use(target);
-		delete this->_inventory[idx];	
-		this->_inventory[idx] = NULL;
 	}
 	return;
 }

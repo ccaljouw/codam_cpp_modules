@@ -6,7 +6,7 @@
 /*   By: cariencaljouw <cariencaljouw@student.co      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/30 17:13:38 by cariencaljo   #+#    #+#                 */
-/*   Updated: 2023/08/30 17:17:41 by cariencaljo   ########   odam.nl         */
+/*   Updated: 2023/08/31 14:32:51 by cariencaljo   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,10 @@
 
 #include "../include/AMateria.hpp"
 
-class Cure : AMateria
+class Cure : public AMateria
 {
 	public:
+		Cure( void );
 		Cure(std::string const& type);
 		Cure( Cure const& rhs);
 		Cure const& operator=( Cure const& rhs );

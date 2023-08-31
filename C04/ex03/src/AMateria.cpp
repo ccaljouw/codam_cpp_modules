@@ -6,7 +6,7 @@
 /*   By: cariencaljouw <cariencaljouw@student.co      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/30 16:55:56 by cariencaljo   #+#    #+#                 */
-/*   Updated: 2023/08/30 18:44:12 by cariencaljo   ########   odam.nl         */
+/*   Updated: 2023/08/31 22:43:43 by cariencaljo   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ AMateria const& AMateria::operator=( AMateria const& rhs ) {
 	this->_type = rhs.getType();
 	// copy inventory
 	std::cout << "AMateria copy assignment constructor called with type " << this->_type << std::endl;
-	return *this;	
+	return *this;
 }
 
 AMateria::~AMateria( void ) {
@@ -42,11 +42,14 @@ AMateria::~AMateria( void ) {
 	return;
 }
 
-std::string const& AMateria::getType() const {
+std::string const& AMateria::getType( void ) const {
 	return this->_type;
 }
 
 void AMateria::use(ICharacter& target) {
-	std::cout << "should this method not be =0?" << std::endl;
+	if (this->getType() == "ice")
+		std::cout << "* shoots an icebot at " << target.getName() << " *" << std::endl;
+	if (this->getType() == "cure")
+		std::cout << "* heals " << target.getName() << " 's wounds *" << std::endl;
 	return;
 }

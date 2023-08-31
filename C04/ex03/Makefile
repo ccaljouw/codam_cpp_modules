@@ -6,7 +6,7 @@
 #    By: ccaljouw <ccaljouw@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/08/30 10:48:44 by ccaljouw      #+#    #+#                  #
-#    Updated: 2023/08/30 16:48:55 by cariencaljo   ########   odam.nl          #
+#    Updated: 2023/08/31 13:33:27 by cariencaljo   ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ CFLAGS		= -Wall -Wextra -Werror -Wpedantic -Wshadow -Wnon-virtual-dtor -Wold-sty
 				-Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wfloat-conversion -Wformat=2 -Werror=vla \
 				-Wnull-dereference -std=c++98
 INCLUDE		= -I include/
-OBJ_FILES	= $(addprefix obj/, main.o AMateria.o )
+OBJ_FILES	= $(addprefix obj/, main.o AMateria.o Character.o Cure.o Ice.o ICharacter.o IMateriaSource.o MateriaSource.o)
 
 
 all: $(NAME)
