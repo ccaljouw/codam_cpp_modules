@@ -6,7 +6,7 @@
 /*   By: cariencaljouw <cariencaljouw@student.co      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/30 17:07:21 by cariencaljo   #+#    #+#                 */
-/*   Updated: 2023/08/31 19:08:30 by cariencaljo   ########   odam.nl         */
+/*   Updated: 2023/09/01 11:39:00 by ccaljouw      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ class Character : public ICharacter
 
 		std::string	_name;
 		AMateria*	_inventory[4];
+		AMateria**	_cleanup;
+		int			_toClean;
 	
 };
 #endif

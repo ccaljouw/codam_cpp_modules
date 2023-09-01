@@ -6,7 +6,7 @@
 /*   By: ccaljouw <ccaljouw@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/30 10:48:41 by ccaljouw      #+#    #+#                 */
-/*   Updated: 2023/08/31 23:15:24 by cariencaljo   ########   odam.nl         */
+/*   Updated: 2023/09/01 11:44:55 by ccaljouw      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,8 @@ int main() {
 	me->equip(tmp);
 	tmp = src->createMateria("cure");
 	me->equip(tmp);
-	me->equip(tmp);
-	me->equip(tmp);
 	tmp = src->createMateria("ice");
 	me->equip(tmp);
-	delete tmp;
 
 	ICharacter* bob = new Character("bob");
 	
