@@ -6,7 +6,7 @@
 /*   By: ccaljouw <ccaljouw@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/16 11:13:01 by ccaljouw      #+#    #+#                 */
-/*   Updated: 2023/08/16 14:28:55 by ccaljouw      ########   odam.nl         */
+/*   Updated: 2023/09/01 15:48:05 by ccaljouw      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ std::string	find_replace(std::string line, std::string s1, std::string s2) {
 }
 
 int	main(int argc, char **argv) {
+	
 	if (argc != 4)
 		return print_error("Error, incorrect number of arguments");
 	std::string		s1(argv[2]);
@@ -51,5 +52,7 @@ int	main(int argc, char **argv) {
 		outFile << find_replace(line, s1, s2) << std::endl;
 	inFile.close();
 	outFile.close();
+	
 	return 0;
 }
+

@@ -6,15 +6,12 @@
 /*   By: ccaljouw <ccaljouw@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/03 13:50:33 by ccaljouw      #+#    #+#                 */
-/*   Updated: 2023/08/13 16:23:55 by cariencaljo   ########   odam.nl         */
+/*   Updated: 2023/09/01 15:33:27 by ccaljouw      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-Zombie* newZombie( std::string name ) {
-	Zombie *newzombie;
-	
-	newzombie = new Zombie(name);
-	return newzombie;
+Zombie* newZombie(std::string name) {
+	return new Zombie(name);
 }

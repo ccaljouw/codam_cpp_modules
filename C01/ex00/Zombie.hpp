@@ -6,7 +6,7 @@
 /*   By: ccaljouw <ccaljouw@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/03 13:50:57 by ccaljouw      #+#    #+#                 */
-/*   Updated: 2023/08/13 18:53:42 by cariencaljo   ########   odam.nl         */
+/*   Updated: 2023/09/01 15:33:08 by ccaljouw      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@ class Zombie {
 	
 	public:
 	
-		Zombie( void );
+		Zombie(void);
 		Zombie(std::string name);
-		~Zombie( void );
+		~Zombie(void);
 		
-		void announce( void ) const;
+		void announce(void) const;
 	
 	private:
 	
@@ -31,7 +31,7 @@ class Zombie {
 	
 };
 
-Zombie* newZombie( std::string name );
-void 	randomChump( std::string name );
+Zombie* newZombie(std::string name);
+void 	randomChump(std::string name);
 
 #endif
