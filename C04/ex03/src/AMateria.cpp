@@ -6,7 +6,7 @@
 /*   By: cariencaljouw <cariencaljouw@student.co      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/30 16:55:56 by cariencaljo   #+#    #+#                 */
-/*   Updated: 2023/08/31 22:43:43 by cariencaljo   ########   odam.nl         */
+/*   Updated: 2023/09/01 12:05:23 by ccaljouw      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,9 +47,6 @@ std::string const& AMateria::getType( void ) const {
 }
 
 void AMateria::use(ICharacter& target) {
-	if (this->getType() == "ice")
-		std::cout << "* shoots an icebot at " << target.getName() << " *" << std::endl;
-	if (this->getType() == "cure")
-		std::cout << "* heals " << target.getName() << " 's wounds *" << std::endl;
+	(void)target;
 	return;
 }

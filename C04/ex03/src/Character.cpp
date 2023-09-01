@@ -6,7 +6,7 @@
 /*   By: cariencaljouw <cariencaljouw@student.co      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/30 17:06:58 by cariencaljo   #+#    #+#                 */
-/*   Updated: 2023/09/01 11:46:59 by ccaljouw      ########   odam.nl         */
+/*   Updated: 2023/09/01 12:10:39 by ccaljouw      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,10 @@ Character const& Character::operator=( Character const& rhs ) {
 
 Character::~Character( void ) {
 	std::cout << "Character destructor called on " << this->getName() << std::endl;
-	for(int i = 0; i < 4; i++)
-		delete this->_inventory[i];
+	for(int i = 0; i < 4; i++) {
+		if (this->_inventory[i])
+			delete this->_inventory[i];
+	}
 	for(int i = 0; i < this->_toClean; i++)
 		delete this->_cleanup[i];
 	return;
@@ -88,6 +90,8 @@ void Character::unequip(int idx) {
 void Character::use(int idx, ICharacter& target) {
 	if (this->_inventory[idx]) {
 		this->_inventory[idx]->use(target);
+		delete this->_inventory[idx];
+		this->_inventory[idx] = NULL;
 	}
 	return;
 }
