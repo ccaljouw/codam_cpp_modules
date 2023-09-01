@@ -6,7 +6,7 @@
 #    By: ccaljouw <ccaljouw@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/07/31 14:38:22 by ccaljouw      #+#    #+#                  #
-#    Updated: 2023/08/02 17:38:29 by ccaljouw      ########   odam.nl          #
+#    Updated: 2023/09/01 10:10:16 by ccaljouw      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ RESET	:= \033[0m
 #//= Variables = //#
 NAME		= account
 CC			= c++
-CFLAGS		= -Wall -Wextra -Werror -std=c++98
+CFLAGS		= -Wall -Wextra -Werror -Wpedantic -std=c++98
 INCLUDE		= -I ./include
 OBJ_FILES	= $(addprefix obj/, Account.o tests.o)
 

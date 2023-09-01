@@ -6,7 +6,7 @@
 /*   By: ccaljouw <ccaljouw@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/07/31 18:51:50 by ccaljouw      #+#    #+#                 */
-/*   Updated: 2023/08/03 13:37:57 by ccaljouw      ########   odam.nl         */
+/*   Updated: 2023/09/01 09:35:53 by ccaljouw      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	PhoneBook::addContact(void) {
 }
 
 Contact	PhoneBook::_getContact(int i) const {
-	return this->_contacts[i -1];
+	return this->_contacts[i - 1];
 }
 
 void	PhoneBook::searchPhonebook(void) const {
