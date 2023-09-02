@@ -6,26 +6,26 @@
 /*   By: cariencaljouw <cariencaljouw@student.co      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/28 13:40:52 by cariencaljo   #+#    #+#                 */
-/*   Updated: 2023/08/28 18:24:51 by cariencaljo   ########   odam.nl         */
+/*   Updated: 2023/09/02 11:50:08 by cariencaljo   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef _SCAVTRAP_HPP_
 # define _SCAVTRAP_HPP_
 
-#include "ClapTrap.hpp"
+#include "../include/ClapTrap.hpp"
 
 class ScavTrap : virtual public ClapTrap
 {
 	public:
 	
-		ScavTrap( void );
-		ScavTrap( const std::string name );
-		~ScavTrap( void );
+		ScavTrap(void);
+		ScavTrap(const std::string name);
+		~ScavTrap(void);
 
-		void getStatus( void ) const;
-		void attack( const std::string& target );
-		void guardGate( void );
+		void getStatus(void) const;
+		void attack(const std::string& target);
+		void guardGate(void);
 
 		protected:
 			
