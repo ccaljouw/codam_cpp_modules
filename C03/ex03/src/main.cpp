@@ -6,13 +6,10 @@
 /*   By: cariencaljouw <cariencaljouw@student.co      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/28 12:14:51 by cariencaljo   #+#    #+#                 */
-/*   Updated: 2023/09/02 11:44:45 by cariencaljo   ########   odam.nl         */
+/*   Updated: 2023/09/04 12:28:26 by ccaljouw      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/ClapTrap.hpp"
-#include "../include/ScavTrap.hpp"
-#include "../include/FragTrap.hpp"
 #include "../include/DiamondTrap.hpp"
 #include <iostream>
 
