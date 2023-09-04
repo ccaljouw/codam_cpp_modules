@@ -6,19 +6,28 @@
 /*   By: cariencaljouw <cariencaljouw@student.co      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/28 16:34:30 by cariencaljo   #+#    #+#                 */
-/*   Updated: 2023/09/04 10:00:35 by ccaljouw      ########   odam.nl         */
+/*   Updated: 2023/08/28 18:03:03 by cariencaljo   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/DiamondTrap.hpp"
+#include "DiamondTrap.hpp"
+#include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 #include <iostream>
 
 DiamondTrap::DiamondTrap( void ): ScavTrap(), FragTrap() {
+	_energyPoints = ScavTrap::_energyPoints;
+	_hitPoints = FragTrap::_energyPoints;
+	_attackDamage = FragTrap::_attackDamage;
 	return;
 }
 
 DiamondTrap::DiamondTrap( std::string name ) : ClapTrap(name + "_clap_name"), ScavTrap(name + "_scav_name"),  FragTrap(name + "_frag_name") {
 	this->_name = name;
+	_energyPoints = ScavTrap::_energyPoints;
+	_hitPoints = FragTrap::_energyPoints;
+	_attackDamage = FragTrap::_attackDamage;
 	return;
 }
 

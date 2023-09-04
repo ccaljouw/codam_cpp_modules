@@ -6,15 +6,15 @@
 /*   By: cariencaljouw <cariencaljouw@student.co      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/28 16:34:55 by cariencaljo   #+#    #+#                 */
-/*   Updated: 2023/09/04 10:01:11 by ccaljouw      ########   odam.nl         */
+/*   Updated: 2023/08/28 18:19:05 by cariencaljo   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef _DIAMONDTRAP_HPP_
 # define _DIAMONDTRAP_HPP_
 
-#include "../include/ScavTrap.hpp"
-#include "../include/FragTrap.hpp"
+#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
 class DiamondTrap : public ScavTrap, public FragTrap
 {
@@ -32,9 +32,9 @@ class DiamondTrap : public ScavTrap, public FragTrap
 	private:
 
 		std::string _name;
-		using ScavTrap::_energyPoints;
-		using FragTrap::_hitPoints;
-		using FragTrap::_attackDamage;
+		unsigned int	_energyPoints;
+		unsigned int	_hitPoints;
+		unsigned int	_attackDamage;
 		
 };
 

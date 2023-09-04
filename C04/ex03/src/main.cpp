@@ -6,7 +6,7 @@
 /*   By: ccaljouw <ccaljouw@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/30 10:48:41 by ccaljouw      #+#    #+#                 */
-/*   Updated: 2023/09/04 12:06:46 by ccaljouw      ########   odam.nl         */
+/*   Updated: 2023/09/01 12:11:12 by ccaljouw      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,7 @@
 #include "../include/Ice.hpp"
 #include "../include/Cure.hpp"
 
-void	leaks(void) {
-	std::cout << "---------------------------------------------------" << std::endl;
-	system("leaks interface -q");
-	std::cout << "---------------------------------------------------" << std::endl;
-}
-
 int main() {
-
-	atexit(leaks);
 	IMateriaSource* src = new MateriaSource(); 
 	src->learnMateria(new Ice());
 	src->learnMateria(new Cure());
@@ -38,7 +30,7 @@ int main() {
 	me->equip(tmp);
 	tmp = src->createMateria("ice");
 	me->equip(tmp);
-	me->unequip(4);
+	// me->unequip(4);
 
 	ICharacter* bob = new Character("bob");
 	

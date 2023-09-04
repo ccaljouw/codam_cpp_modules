@@ -6,14 +6,14 @@
 /*   By: cariencaljouw <cariencaljouw@student.co      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/28 13:40:52 by cariencaljo   #+#    #+#                 */
-/*   Updated: 2023/09/04 09:59:57 by ccaljouw      ########   odam.nl         */
+/*   Updated: 2023/08/28 18:24:51 by cariencaljo   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef _SCAVTRAP_HPP_
 # define _SCAVTRAP_HPP_
 
-#include "../include/ClapTrap.hpp"
+#include "ClapTrap.hpp"
 
 class ScavTrap : virtual public ClapTrap
 {

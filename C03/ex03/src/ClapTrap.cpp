@@ -6,11 +6,11 @@
 /*   By: cariencaljouw <cariencaljouw@student.co      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/28 12:15:18 by cariencaljo   #+#    #+#                 */
-/*   Updated: 2023/09/04 10:39:32 by ccaljouw      ########   odam.nl         */
+/*   Updated: 2023/08/28 18:16:47 by cariencaljo   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/ClapTrap.hpp"
+#include "ClapTrap.hpp"
 #include <iostream>
 
 ClapTrap::ClapTrap( void ) : _hitPoints(10), _energyPoints(10), _attackDamage(10) {
@@ -32,8 +32,6 @@ ClapTrap::ClapTrap( const ClapTrap& rhs ) {
 }
 
 ClapTrap& ClapTrap::operator=( const ClapTrap& rhs ) {
-	if (this == &rhs)
-		return *this;
 	this->_name = rhs._name;
 	this->_hitPoints = rhs._hitPoints;
 	this->_energyPoints = rhs._energyPoints;

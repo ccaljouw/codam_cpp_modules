@@ -6,11 +6,14 @@
 /*   By: cariencaljouw <cariencaljouw@student.co      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/28 12:14:51 by cariencaljo   #+#    #+#                 */
-/*   Updated: 2023/09/04 10:00:16 by ccaljouw      ########   odam.nl         */
+/*   Updated: 2023/08/30 10:55:54 by ccaljouw      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/DiamondTrap.hpp"
+#include "../include/ClapTrap.hpp"
+#include "../include/ScavTrap.hpp"
+#include "../include/FragTrap.hpp"
+#include "DiamondTrap.hpp"
 #include <iostream>
 
 int	main( void )
