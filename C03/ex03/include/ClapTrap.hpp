@@ -6,7 +6,7 @@
 /*   By: cariencaljouw <cariencaljouw@student.co      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/28 12:15:21 by cariencaljo   #+#    #+#                 */
-/*   Updated: 2023/08/30 13:01:28 by ccaljouw      ########   odam.nl         */
+/*   Updated: 2023/09/04 10:03:16 by ccaljouw      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ class ClapTrap {
 
 	public:
 		
-		ClapTrap( void );
-		ClapTrap( const std::string name );
-		ClapTrap( const ClapTrap& rhs );
+		ClapTrap(void);
+		ClapTrap(const std::string name);
+		ClapTrap(const ClapTrap& rhs);
 		ClapTrap& operator=( const ClapTrap& rhs );
 		virtual ~ClapTrap( void );
 

@@ -6,14 +6,14 @@
 /*   By: cariencaljouw <cariencaljouw@student.co      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/28 15:57:17 by cariencaljo   #+#    #+#                 */
-/*   Updated: 2023/08/28 18:24:55 by cariencaljo   ########   odam.nl         */
+/*   Updated: 2023/09/04 09:59:55 by ccaljouw      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef _FRAGTRAP_HPP_
 # define _FRAGTRAP_HPP_
 
-#include "ClapTrap.hpp"
+#include "../include/ClapTrap.hpp"
 
 class FragTrap : virtual public ClapTrap
 {
