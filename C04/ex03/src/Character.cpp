@@ -6,7 +6,7 @@
 /*   By: cariencaljouw <cariencaljouw@student.co      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/30 17:06:58 by cariencaljo   #+#    #+#                 */
-/*   Updated: 2023/09/04 12:47:29 by ccaljouw      ########   odam.nl         */
+/*   Updated: 2023/09/04 12:49:15 by ccaljouw      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,9 @@ Character::~Character( void ) {
 		if (this->_inventory[i])
 			delete this->_inventory[i];
 	}
-	// clean old inventory
+	for (int i = 0; i < this->_oldInventorySize; i++)
+		delete this->_oldInventory;
+	delete [] this->_oldInventory;
 	return;
 }
 
