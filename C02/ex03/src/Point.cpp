@@ -6,11 +6,12 @@
 /*   By: cariencaljouw <cariencaljouw@student.co      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/25 15:09:37 by cariencaljo   #+#    #+#                 */
-/*   Updated: 2023/09/05 14:37:15 by cariencaljo   ########   odam.nl         */
+/*   Updated: 2023/09/05 15:25:28 by cariencaljo   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/Point.hpp"
+#include <cmath>
 
 Point::Point() : _x(Fixed(0)), _y(Fixed(0)) {
 	return;
