@@ -6,7 +6,7 @@
 /*   By: cariencaljouw <cariencaljouw@student.co      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/23 14:31:29 by cariencaljo   #+#    #+#                 */
-/*   Updated: 2023/08/24 14:42:24 by cariencaljo   ########   odam.nl         */
+/*   Updated: 2023/09/05 13:01:35 by cariencaljo   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ class Fixed {
 
 		Fixed( void );
 		Fixed( const Fixed& rhs);
+		Fixed&  operator=(const Fixed& rhs);
 		~Fixed( void );
 		
-		Fixed&  operator=(const Fixed& rhs);
 		
 		int		getRawBits( void ) const;
 		void	setRawBits( int const raw );

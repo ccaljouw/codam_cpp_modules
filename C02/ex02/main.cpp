@@ -6,7 +6,7 @@
 /*   By: cariencaljouw <cariencaljouw@student.co      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/23 14:31:32 by cariencaljo   #+#    #+#                 */
-/*   Updated: 2023/08/25 15:01:10 by cariencaljo   ########   odam.nl         */
+/*   Updated: 2023/09/05 13:35:47 by cariencaljo   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,13 @@ int	main( void ) {
 	std::cout << a++ << std::endl;
 	std::cout << a << std::endl;
 	std::cout << b << std::endl;
-	std::cout << Fixed::max( a, b ) << std::endl;
+	std::cout << Fixed::max(a, b) << std::endl;
 	std::cout << "-------------------------------------------\n" << std::endl;
 	
 	std::cout << "\n-------------------------------------------" << std::endl;
 	std::cout << "Increment decrement tests" << std::endl;
 	std::cout << "-------------------------------------------" << std::endl;
-	a = 1;
+	a = Fixed(1);
 	std::cout << "value a: " << a << " value b: " << b << std::endl;
 	std::cout << "a++ " << a++ << "\t\ta_now: " << a << std::endl;
 	std::cout << "a-- " << a-- << "\ta_now: " << a << std::endl;
@@ -44,7 +44,9 @@ int	main( void ) {
 	std::cout << "\nvalue a: " << a << " value b: " << b << std::endl;
 	
 	std::cout << "max(a, b): " << Fixed::max( a, b ) << std::endl;
+	std::cout << "max(a, a): " << Fixed::max( a, a ) << std::endl;
 	std::cout << "min(a, b): " << Fixed::min( a, b ) << std::endl;
+	std::cout << "min(a, a): " << Fixed::min( a, a ) << std::endl;
 	std::cout << "max(b, a): " << Fixed::max( b, a ) << std::endl;
 	std::cout << "min(b, a): " << Fixed::min( b, a ) << std::endl;
 	std::cout << "-------------------------------------------\n" << std::endl;
@@ -82,7 +84,7 @@ int	main( void ) {
 	std::cout << "a == b: " << (a == b) << std::endl;
 	std::cout << "a != b: " << (a != b) << std::endl;
 	
-	a = b;
+	a = Fixed(3);
 	std::cout << "\nvalue a: " << a << " value b: " << b << std::endl;
 	
 	std::cout << "a == b: " << (a == b) << std::endl;

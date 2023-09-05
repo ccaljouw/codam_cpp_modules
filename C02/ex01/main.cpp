@@ -6,7 +6,7 @@
 /*   By: cariencaljouw <cariencaljouw@student.co      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/23 14:31:32 by cariencaljo   #+#    #+#                 */
-/*   Updated: 2023/08/24 14:52:58 by cariencaljo   ########   odam.nl         */
+/*   Updated: 2023/09/05 13:16:47 by cariencaljo   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,9 @@
 int	main(void) {
 	
 	Fixed a;
-	Fixed const b( 10 ); Fixed const c( 42.42f ); Fixed const d( b );
+	Fixed const b( 10 ); 
+	Fixed const c( 42.42f ); 
+	Fixed const d( b );
 	
 	a = Fixed( 1234.4321f );
 	

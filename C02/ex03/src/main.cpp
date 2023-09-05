@@ -6,11 +6,11 @@
 /*   By: cariencaljouw <cariencaljouw@student.co      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/23 14:31:32 by cariencaljo   #+#    #+#                 */
-/*   Updated: 2023/08/27 19:29:55 by cariencaljo   ########   odam.nl         */
+/*   Updated: 2023/09/05 14:54:52 by cariencaljo   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Point.hpp"
+#include "../include/Point.hpp"
 #include <iostream>
 
 /*
@@ -30,28 +30,25 @@
 		/						  \	
        /						   \
 	  /								\
-A(0,0) -----P3(8, 0)----------------- C(30,0)			P3 inside
+A(0,0) -----P3(8, 0)----------------- C(30,0)			P3 not inside
 					P4(15, -3)							P4 not inside
 */
 
 int main( void )
 {
 	Point	A;
-	Point	B(Fixed(15), Fixed(15));
-	Point	C(Fixed(30), Fixed());
-	Point	P[4] = {
-		Point(Fixed(30), Fixed(10)), 
-		Point(Fixed(15.0f), Fixed(5.0f)), 
-		Point(Fixed(8), Fixed(0)), 
-		Point(Fixed(15.0f), Fixed(-3.0f))
+	Point	B(15, 15);
+	Point	C(30, 0);
+	Point	P[4] = {Point(30, 10), Point(15, 5), Point(8, 0), Point(15, -3)
 	};
 	
 	for(int i = 0; i < 4; i++)
 	{
 		if (bsp(A, B, C, P[i]))
-    		std::cout << "\nP" << i + 1 << " inside" << std::endl;
+    		std::cout << "\nP" << P[i] << " inside t:";
 		else
-			std::cout << "\nP" << i + 1 << " not inside" << std::endl;
+			std::cout << "\nP" << P[i]<< " not inside t";
+		std::cout << A << ", " << B << ", " << C << std::endl;
 	}
 	std::cout << std::endl;
 	return 0;
