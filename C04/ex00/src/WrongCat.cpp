@@ -13,38 +13,36 @@
 #include "../include/WrongCat.hpp"
 #include <iostream>
 
-WrongCat::WrongCat( void ) : WrongAnimal("WrongCat") {
+WrongCat::WrongCat() : WrongAnimal() {
 	this->_type = "WrongCat";
 	std::cout << "Default WrongCat constructor called with type " << this->_type
 	<< " and WrongAnimal type " << WrongAnimal::_type << std::endl;
 	return;
 }
 
-WrongCat::WrongCat( std::string type ) : WrongAnimal(type) {
-	this->_type = "WrongCat";
-	std::cout << "WrongCat constructor called with type " << this->_type 
-		<< " and WrongAnimal type " << WrongAnimal::_type << std::endl;
-	return;
-}
-
-WrongCat::WrongCat( WrongCat const& rhs) {
+WrongCat::WrongCat(WrongCat const& rhs) {
 	*this = rhs;
 	std::cout << "WrongCat copy constructor called with type " << this->_type << std::endl;
 	return;
 }
 
-WrongCat const& WrongCat::operator=( WrongCat const& rhs) {
+WrongCat const& WrongCat::operator=(WrongCat const& rhs) {
 	this->_type = rhs.getType();
 	std::cout << "WrongCat assignment constructor called with type " << this->_type << std::endl;
 	return *this;
 }
 
-WrongCat::~WrongCat( void ) {
+WrongCat::~WrongCat(void) {
 	std::cout << "WrongCat destructor called" << std::endl;
 	return;
 }
 
-void WrongCat::makeSound( void ) const {
+
+std::string WrongCat::getType(void) const {
+	return this->_type;
+}
+
+void WrongCat::makeSound(void) const {
 	std::cout << "Miaauw" << std::endl;
 	return;
 }

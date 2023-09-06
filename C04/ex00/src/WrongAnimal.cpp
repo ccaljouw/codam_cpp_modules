@@ -13,39 +13,33 @@
 #include "../include/WrongAnimal.hpp"
 #include <iostream>
 
-WrongAnimal::WrongAnimal( void ) {
+WrongAnimal::WrongAnimal() : _type("Wrong animal") {
 	std::cout << "Default WrongAnimal constructor called" << std::endl;
 	return;
 }
 
-WrongAnimal::WrongAnimal( std::string type ) {
-	this->_type = type;
-	std::cout << "WrongAnimal constructor called with type " << type << std::endl;
-	return;
-}
-
-WrongAnimal::WrongAnimal( WrongAnimal const& rhs) {
+WrongAnimal::WrongAnimal(WrongAnimal const& rhs) {
 	*this = rhs;
 	std::cout << "WrongAnimal copy constructor called with type " << this->_type << std::endl;
 	return;
 }
 
-WrongAnimal const& WrongAnimal::operator=( WrongAnimal const& rhs) {
+WrongAnimal const& WrongAnimal::operator=(WrongAnimal const& rhs) {
 	this->_type = rhs.getType();
 	std::cout << "WrongAnimal assignment constructor called with type " << this->_type << std::endl;
 	return *this;
 }
 
-WrongAnimal::~WrongAnimal( void ) {
+WrongAnimal::~WrongAnimal() {
 	std::cout << "WrongAnimal destructor called" << std::endl;
 	return;
 }
 
-std::string WrongAnimal::getType( void ) const {
+std::string WrongAnimal::getType(void) const {
 	return this->_type;
 }
 
-void		WrongAnimal::makeSound( void ) const {
+void		WrongAnimal::makeSound(void) const {
 	std::cout << "Just a WrongAnimal" << std::endl;
 	return;
 }
