@@ -6,11 +6,11 @@
 /*   By: cariencaljouw <cariencaljouw@student.co      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/25 15:09:32 by cariencaljo   #+#    #+#                 */
-/*   Updated: 2023/09/05 14:52:19 by cariencaljo   ########   odam.nl         */
+/*   Updated: 2023/09/06 09:39:05 by ccaljouw      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Point.hpp"
+#include "../include/Point.hpp"
 #include <cmath>
 
 float absolute(float n) {

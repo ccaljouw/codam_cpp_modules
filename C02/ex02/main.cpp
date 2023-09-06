@@ -6,7 +6,7 @@
 /*   By: cariencaljouw <cariencaljouw@student.co      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/23 14:31:32 by cariencaljo   #+#    #+#                 */
-/*   Updated: 2023/09/05 13:35:47 by cariencaljo   ########   odam.nl         */
+/*   Updated: 2023/09/06 09:52:52 by ccaljouw      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,8 @@
 #include <iostream>
 
 int	main( void ) { 
-	
 	Fixed a;
-	Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
+	Fixed const b( Fixed(5.05f) * Fixed(2) );
 
 	std::cout << "\n-------------------------------------------" << std::endl;
 	std::cout << "Tests from subject" << std::endl;
@@ -33,7 +32,7 @@ int	main( void ) {
 	std::cout << "\n-------------------------------------------" << std::endl;
 	std::cout << "Increment decrement tests" << std::endl;
 	std::cout << "-------------------------------------------" << std::endl;
-	a = Fixed(1);
+	a = Fixed(3);
 	std::cout << "value a: " << a << " value b: " << b << std::endl;
 	std::cout << "a++ " << a++ << "\t\ta_now: " << a << std::endl;
 	std::cout << "a-- " << a-- << "\ta_now: " << a << std::endl;
@@ -84,7 +83,7 @@ int	main( void ) {
 	std::cout << "a == b: " << (a == b) << std::endl;
 	std::cout << "a != b: " << (a != b) << std::endl;
 	
-	a = Fixed(3);
+	a = b;
 	std::cout << "\nvalue a: " << a << " value b: " << b << std::endl;
 	
 	std::cout << "a == b: " << (a == b) << std::endl;

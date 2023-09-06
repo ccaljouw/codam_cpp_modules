@@ -6,7 +6,7 @@
 /*   By: cariencaljouw <cariencaljouw@student.co      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/23 14:31:27 by cariencaljo   #+#    #+#                 */
-/*   Updated: 2023/09/05 13:39:38 by cariencaljo   ########   odam.nl         */
+/*   Updated: 2023/09/06 09:49:12 by ccaljouw      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,36 +16,30 @@
 
 Fixed::Fixed() {
 	_fixedPointValue = 0;
-	std::cout << "Default constructor called" << std::endl;
 	return;
 }
 
 Fixed::Fixed(const int i) {
 	_fixedPointValue = i << _fractionalBits;
-	std::cout << "Int constructor called" << std::endl;
 	return;
 }
 
 Fixed::Fixed(const float f) {
 	_fixedPointValue = (int)std::roundf(f * (1 << _fractionalBits));
-	std::cout << "Float constructor called" << std::endl;
 	return;
 }
 
 Fixed::Fixed(const Fixed& rhs) {
-	std::cout << "Copy constructor called" << std::endl;
 	*this = rhs;
 	return;
 }
 
 Fixed&  Fixed::operator=(const Fixed& rhs) {
-	std::cout << "Copy assignment operator called" << std::endl;
 	this->_fixedPointValue = rhs.getRawBits();
 	return *this;
 }
 
 Fixed::~Fixed() {
-	std::cout << "Destructor called" << std::endl;
 	return;
 }
 
