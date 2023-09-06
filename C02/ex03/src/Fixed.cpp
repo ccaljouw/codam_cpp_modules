@@ -6,7 +6,7 @@
 /*   By: cariencaljouw <cariencaljouw@student.co      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/23 14:31:27 by cariencaljo   #+#    #+#                 */
-/*   Updated: 2023/09/05 15:28:27 by cariencaljo   ########   odam.nl         */
+/*   Updated: 2023/09/06 11:18:39 by ccaljouw      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	Fixed::setRawBits(int const raw) {
 }
 
 float	Fixed::toFloat(void) const {
-	float f = (float)(this->getRawBits()) / (1 << _fractionalBits);
+	float f = ((float)(this->getRawBits()) / (float)(1 << _fractionalBits));
 	return f;
 }
 

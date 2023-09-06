@@ -6,7 +6,7 @@
 /*   By: cariencaljouw <cariencaljouw@student.co      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/23 14:31:32 by cariencaljo   #+#    #+#                 */
-/*   Updated: 2023/09/05 15:31:43 by cariencaljo   ########   odam.nl         */
+/*   Updated: 2023/09/06 11:36:57 by ccaljouw      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@
 A(0,0) -----P3(8, 0)----------------- C(30,0)			P3 not inside
 					P4(15, -3)							P4 not inside
 */
+
 void leaks(void) {
 	std::cout << "--------------------------------" << std::endl;
 	system("leaks bsp -q");
@@ -54,10 +55,10 @@ int main( void )
 		std::cout << std::endl;
 	}
 	{
-		Point	A (1, 2);
+		Point	A(1, 2);
 		Point	B(3, 4);
 		Point	C(5, 3);
-		Point	P[4] = {Point(1, 1), Point(3, 3.99), Point(3, 4), Point(2.99, 3.99)};
+		Point	P[4] = {Point(1, 1), Point(3, 3.99), Point(3, 4), Point(3, 3.5)};
 		
 		std::cout << "triangle " << A << ", " << B << ", " << C << std::endl;
 		for(int i = 0; i < 4; i++)
