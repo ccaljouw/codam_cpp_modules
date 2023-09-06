@@ -6,7 +6,7 @@
 /*   By: cariencaljouw <cariencaljouw@student.co      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/28 16:34:55 by cariencaljo   #+#    #+#                 */
-/*   Updated: 2023/09/02 11:49:40 by cariencaljo   ########   odam.nl         */
+/*   Updated: 2023/09/06 12:19:06 by ccaljouw      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,11 @@ class DiamondTrap : public ScavTrap, public FragTrap
 {
 	public:
 	
-		DiamondTrap(void);
-		DiamondTrap(std::string name);
-		~DiamondTrap(void);
+		DiamondTrap();
+		DiamondTrap(std::string);
+		DiamondTrap(const DiamondTrap& rhs);
+		DiamondTrap& operator=(const DiamondTrap& rhs);
+		~DiamondTrap();
 
 		using ScavTrap::attack;
 		

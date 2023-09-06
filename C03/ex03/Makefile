@@ -6,7 +6,7 @@
 #    By: cariencaljouw <cariencaljouw@student.co      +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/08/28 13:00:44 by cariencaljo   #+#    #+#                  #
-#    Updated: 2023/08/30 13:22:38 by ccaljouw      ########   odam.nl          #
+#    Updated: 2023/09/06 12:13:28 by ccaljouw      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,7 +39,6 @@ $(OBJ_FILES): obj/%.o: src/%.cpp
 clean:
 	@echo "$(BLUE)Cleaning $(NAME) $(RESET)"
 	@rm -rf obj/
-	@rm -rf obj_builtin/
 
 fclean: clean
 	@rm -rf $(NAME)

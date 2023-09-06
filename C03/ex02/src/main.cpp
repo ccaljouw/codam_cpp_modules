@@ -6,17 +6,24 @@
 /*   By: cariencaljouw <cariencaljouw@student.co      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/28 12:14:51 by cariencaljo   #+#    #+#                 */
-/*   Updated: 2023/08/28 16:33:31 by cariencaljo   ########   odam.nl         */
+/*   Updated: 2023/09/06 12:16:16 by ccaljouw      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
-#include "ScavTrap.hpp"
-#include "FragTrap.hpp"
+#include "../include/ScavTrap.hpp"
+#include "../include/FragTrap.hpp"
 #include <iostream>
+
+void leaks(void) {
+	std::cout << "-------------------------------------" << std::endl;
+	system("leaks fragtrap -q");
+	std::cout << "-------------------------------------" << std::endl;
+}
 
 int	main( void )
 {
+	atexit(leaks);
+	
 	ClapTrap jan("Jan");
 	ClapTrap klaas("Klaas");
 	ClapTrap piet(jan);

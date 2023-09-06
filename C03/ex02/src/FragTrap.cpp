@@ -6,14 +6,14 @@
 /*   By: cariencaljouw <cariencaljouw@student.co      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/28 15:57:08 by cariencaljo   #+#    #+#                 */
-/*   Updated: 2023/08/28 16:08:23 by cariencaljo   ########   odam.nl         */
+/*   Updated: 2023/09/06 12:12:40 by ccaljouw      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
 #include <iostream>
 
-FragTrap::FragTrap( void ) : ClapTrap() {
+FragTrap::FragTrap() : ClapTrap() {
 	this->_hitPoints = 100;
 	this->_energyPoints = 100;
 	this->_attackDamage = 30; 
@@ -21,7 +21,7 @@ FragTrap::FragTrap( void ) : ClapTrap() {
 	return;
 }
 
-FragTrap::FragTrap( const std::string name ) : ClapTrap(name) {
+FragTrap::FragTrap(const std::string name) : ClapTrap(name) {
 	this->_hitPoints = 100;
 	this->_energyPoints = 100;
 	this->_attackDamage = 30; 
@@ -29,12 +29,29 @@ FragTrap::FragTrap( const std::string name ) : ClapTrap(name) {
 	return;
 }
 
-FragTrap::~FragTrap( void ) {
+FragTrap::FragTrap(const FragTrap& rhs) {
+	*this = rhs;
+	std::cout << "FragTrap copy constructor called with name " 
+		<< this->_name << std::endl;
+	return;
+}
+
+FragTrap& FragTrap::operator=(const FragTrap& rhs) {
+	this->_name = rhs._name;
+	this->_hitPoints = rhs._hitPoints;
+	this->_energyPoints = rhs._energyPoints;
+	this->_attackDamage = rhs._attackDamage;
+	std::cout << "FragTrap assignment operator called with name " 
+		<< this->_name << std::endl;
+	return *this;
+}
+
+FragTrap::~FragTrap() {
 	std::cout << "FragTrap destructor called on " << this->_name << std::endl;
 	return;
 }
 
-void FragTrap::attack( const std::string& target ) {
+void FragTrap::attack(const std::string& target) {
 	if (!this->_energyPoints || !this->_hitPoints) {
 		std::cout <<"FragTrap " << this->_name 
 			<< " does not have energy to attack" << std::endl;

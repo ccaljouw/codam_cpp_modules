@@ -6,14 +6,14 @@
 /*   By: cariencaljouw <cariencaljouw@student.co      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/28 15:57:08 by cariencaljo   #+#    #+#                 */
-/*   Updated: 2023/08/30 10:45:32 by ccaljouw      ########   odam.nl         */
+/*   Updated: 2023/09/06 12:21:28 by ccaljouw      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/FragTrap.hpp"
 #include <iostream>
 
-FragTrap::FragTrap( void ) {
+FragTrap::FragTrap() {
 	this->_hitPoints = 100;
 	this->_energyPoints = 100;
 	this->_attackDamage = 30; 
@@ -21,7 +21,7 @@ FragTrap::FragTrap( void ) {
 	return;
 }
 
-FragTrap::FragTrap( const std::string name ) : ClapTrap(name) {
+FragTrap::FragTrap(const std::string name) : ClapTrap(name) {
 	this->_name = name;
 	this->_hitPoints = 100;
 	this->_energyPoints = 100;
@@ -30,12 +30,30 @@ FragTrap::FragTrap( const std::string name ) : ClapTrap(name) {
 	return;
 }
 
-FragTrap::~FragTrap( void ) {
+
+FragTrap::FragTrap(const FragTrap& rhs) {
+	*this = rhs;
+	std::cout << "FragTrap copy constructor called with name " 
+		<< this->_name << std::endl;
+	return;
+}
+
+FragTrap& FragTrap::operator=(const FragTrap& rhs) {
+	this->_name = rhs._name;
+	this->_hitPoints = rhs._hitPoints;
+	this->_energyPoints = rhs._energyPoints;
+	this->_attackDamage = rhs._attackDamage;
+	std::cout << "FragTrap assignment operator called with name " 
+		<< this->_name << std::endl;
+	return *this;
+}
+
+FragTrap::~FragTrap() {
 	std::cout << "FragTrap destructor called on " << this->_name << std::endl;
 	return;
 }
 
-void FragTrap::attack( const std::string& target ) {
+void FragTrap::attack(const std::string& target) {
 	if (!this->_energyPoints || !this->_hitPoints) {
 		std::cout <<"FragTrap " << this->_name 
 			<< " does not have energy to attack" << std::endl;
@@ -56,7 +74,7 @@ void FragTrap::highFivesGuys(void) {
 	return;
 }
 
-void FragTrap::getStatus( void ) const {
+void FragTrap::getStatus(void) const {
 	std::cout << "\n" << this->_name << " has " << this->_energyPoints 
 		<< " energy points and " << FragTrap::_hitPoints << " hitpoints." << std::endl;
 	if (this->_hitPoints && this->_energyPoints)

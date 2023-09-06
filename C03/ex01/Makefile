@@ -6,7 +6,7 @@
 #    By: cariencaljouw <cariencaljouw@student.co      +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/08/28 13:00:44 by cariencaljo   #+#    #+#                  #
-#    Updated: 2023/08/28 15:36:35 by cariencaljo   ########   odam.nl          #
+#    Updated: 2023/09/06 12:13:19 by ccaljouw      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,9 @@ RESET	:= \033[0m
 #//= Variables = //#
 NAME		= scavtrap
 CC			= c++
-CFLAGS		= -Wall -Wextra -Werror -std=c++98
+CFLAGS		= -Wall -Wextra -Werror -std=c++98 -Wpedantic -Wshadow -Wnon-virtual-dtor -Wold-style-cast -Wcast-align -Wzero-as-null-pointer-constant \
+				-Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wfloat-conversion -Wformat=2 -Werror=vla \
+				-Wnull-dereference
 INCLUDE		= -I ./include
 OBJ_FILES	= $(addprefix obj/, main.o ClapTrap.o ScavTrap.o)
 
@@ -37,7 +39,6 @@ $(OBJ_FILES): obj/%.o: src/%.cpp
 clean:
 	@echo "$(BLUE)Cleaning $(NAME) $(RESET)"
 	@rm -rf obj/
-	@rm -rf obj_builtin/
 
 fclean: clean
 	@rm -rf $(NAME)
