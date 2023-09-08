@@ -6,7 +6,7 @@
 /*   By: ccaljouw <ccaljouw@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/30 10:52:14 by ccaljouw      #+#    #+#                 */
-/*   Updated: 2023/08/30 16:04:47 by cariencaljo   ########   odam.nl         */
+/*   Updated: 2023/09/08 10:52:53 by ccaljouw      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,14 @@ class Dog : public AAnimal
 {
 	public:
 	
-		Dog( void );
-		Dog( std::string type );
-		Dog( Dog const& rhs);
-		Dog const& operator=( Dog const& rhs);
-		~Dog( void );
+		Dog();
+		Dog(Dog const& rhs);
+		Dog const& operator=(Dog const& rhs);
+		~Dog();
 
-		void	makeSound( void ) const;
+		void		makeSound(void) const;
+		std::string getType(void) const;
+		Brain const*	getBrain(void) const;
 
 	private:
 		

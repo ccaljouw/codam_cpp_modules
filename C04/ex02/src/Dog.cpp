@@ -6,52 +6,52 @@
 /*   By: ccaljouw <ccaljouw@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/30 10:55:16 by ccaljouw      #+#    #+#                 */
-/*   Updated: 2023/08/30 16:06:16 by cariencaljo   ########   odam.nl         */
+/*   Updated: 2023/09/08 10:53:51 by ccaljouw      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/Dog.hpp"
 #include <iostream>
 
-Dog::Dog( void ) : AAnimal("DogAAnimal") {
-	this->_type = "Dog";
-	this->_brain = new Brain();
+Dog::Dog() : AAnimal() {
 	std::cout << "Default Dog constructor called with type " << this->_type 
-	<< " and AAnimal type " << AAnimal::_type << std::endl;
-	return;
-}
-
-Dog::Dog( std::string type ) : AAnimal(type) {
+		<< " and Animal type " << AAnimal::_type << std::endl;
 	this->_type = "Dog";
-	this->_brain = new Brain();
-	std::cout << "Dog constructor called with type " << this->_type 
-		<< " and AAnimal type " << AAnimal::_type << std::endl;
+	this->_brain = new Brain;
 	return;
 }
 
-Dog::Dog( Dog const& rhs) {
+Dog::Dog(Dog const& rhs) {
 	this->_type = rhs.getType();
-	this->_brain = new Brain();
-	this->_brain->setIdeas(rhs._brain->getIdeas());
+	this->_brain = new Brain;
+	this->_brain->setIdeas(rhs.getBrain()->getIdeas());
 	std::cout << "Dog copy constructor called with type " << this->_type << std::endl;
 	return;
 }
 
-Dog const& Dog::operator=( Dog const& rhs) {
+Dog const& Dog::operator=(Dog const& rhs) {
 	this->_type = rhs.getType();
-	this->_brain->setIdeas(rhs._brain->getIdeas());
+	this->_brain->setIdeas(rhs.getBrain()->getIdeas());
 	std::cout << "Dog assignment constructor called with type " << this->_type << std::endl;
 	return *this;
 }
 
-Dog::~Dog( void ) {
-	delete this->_brain;
+Dog::~Dog() {
 	std::cout << "Dog destructor called" << std::endl;
+	delete this->_brain;
 	return;
 }
 
-void Dog::makeSound( void ) const {
+std::string Dog::getType(void) const {
+	return this->_type;
+}
+
+void Dog::makeSound(void) const {
 	std::cout << "I am a " << this->_type << " also known as " << AAnimal::_type << " Woof!" << std::endl;
 	return;
+}
+
+Brain const*	Dog::getBrain(void) const {
+	return this->_brain;
 }
 

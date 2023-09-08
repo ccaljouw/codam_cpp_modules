@@ -6,7 +6,7 @@
 /*   By: ccaljouw <ccaljouw@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/30 10:48:41 by ccaljouw      #+#    #+#                 */
-/*   Updated: 2023/08/30 16:06:58 by cariencaljo   ########   odam.nl         */
+/*   Updated: 2023/09/08 10:54:55 by ccaljouw      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,15 @@
 #include "../include/Dog.hpp"
 #include <iostream>
 
+void leaks(void) {
+	std::cout << "---------------------------------" << std::endl;
+	system("leaks brain -q");
+	std::cout << "---------------------------------" << std::endl;
+}
+
 int main( void ) {
+	
+	atexit(leaks);
 	
 	{
 		const Cat* b = new Cat();
