@@ -6,7 +6,7 @@
 /*   By: ccaljouw <ccaljouw@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/30 13:24:07 by ccaljouw      #+#    #+#                 */
-/*   Updated: 2023/09/08 09:34:29 by ccaljouw      ########   odam.nl         */
+/*   Updated: 2023/09/08 12:07:44 by ccaljouw      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,10 @@ class Brain {
 		Brain const& operator=(Brain const& rhs);
 		virtual ~Brain( void );
 	
+		void				copyIdeas(Brain* rhs);
 		std::string const*	getIdeas(void) const;
-		void				setIdeas(std::string const* ideas);
+		void				setIdea(const std::string ideas);
+		void				printIdeas(void) const;
 		
 	private:
 

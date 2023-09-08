@@ -6,7 +6,7 @@
 /*   By: ccaljouw <ccaljouw@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/30 10:52:10 by ccaljouw      #+#    #+#                 */
-/*   Updated: 2023/09/08 09:49:40 by ccaljouw      ########   odam.nl         */
+/*   Updated: 2023/09/08 11:44:35 by ccaljouw      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ class Cat : public Animal
 
 		void			makeSound(void) const;
 		std::string		getType(void) const;
-		Brain const*	getBrain(void) const;
+		Brain*			getBrain(void) const;
 	
 	private:
 		

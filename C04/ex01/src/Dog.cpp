@@ -6,7 +6,7 @@
 /*   By: ccaljouw <ccaljouw@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/30 10:55:16 by ccaljouw      #+#    #+#                 */
-/*   Updated: 2023/09/08 10:46:23 by ccaljouw      ########   odam.nl         */
+/*   Updated: 2023/09/08 12:08:10 by ccaljouw      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,14 @@ Dog::Dog() : Animal() {
 Dog::Dog(Dog const& rhs) {
 	this->_type = rhs.getType();
 	this->_brain = new Brain;
-	this->_brain->setIdeas(rhs.getBrain()->getIdeas());
+	this->getBrain()->copyIdeas(rhs.getBrain());
 	std::cout << "Dog copy constructor called with type " << this->_type << std::endl;
 	return;
 }
 
 Dog const& Dog::operator=(Dog const& rhs) {
 	this->_type = rhs.getType();
-	this->_brain->setIdeas(rhs.getBrain()->getIdeas());
+	this->getBrain()->copyIdeas(rhs.getBrain());
 	std::cout << "Dog assignment constructor called with type " << this->_type << std::endl;
 	return *this;
 }
@@ -51,7 +51,7 @@ void Dog::makeSound(void) const {
 	return;
 }
 
-Brain const*	Dog::getBrain(void) const {
+Brain*	Dog::getBrain(void) const {
 	return this->_brain;
 }
 
