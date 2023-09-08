@@ -6,7 +6,7 @@
 /*   By: ccaljouw <ccaljouw@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/30 10:52:10 by ccaljouw      #+#    #+#                 */
-/*   Updated: 2023/08/30 13:31:40 by ccaljouw      ########   odam.nl         */
+/*   Updated: 2023/09/08 09:49:40 by ccaljouw      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,19 +20,20 @@ class Cat : public Animal
 {
 	public:
 	
-		Cat( void );
-		Cat( std::string type );
-		Cat( Cat const& rhs);
-		Cat const& operator=( Cat const& rhs);
-		~Cat( void );
+		Cat();
+		Cat(Cat const& rhs);
+		Cat const& operator=(Cat const& rhs);
+		~Cat();
 
-		void	makeSound( void ) const;
+		void			makeSound(void) const;
+		std::string		getType(void) const;
+		Brain const*	getBrain(void) const;
 	
 	private:
 		
 		std::string _type;
 		Brain*		_brain;
-		
 };
 
 #endif
+

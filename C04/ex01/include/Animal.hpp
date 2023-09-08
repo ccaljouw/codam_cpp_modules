@@ -6,7 +6,7 @@
 /*   By: ccaljouw <ccaljouw@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/30 10:51:35 by ccaljouw      #+#    #+#                 */
-/*   Updated: 2023/08/30 13:05:42 by ccaljouw      ########   odam.nl         */
+/*   Updated: 2023/09/08 09:31:21 by ccaljouw      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,17 @@
 
 #include <string>
 
+
 class Animal {
 	
 	public:
-		Animal( void );
-		Animal( std::string type );
-		Animal( Animal const& rhs);
-		Animal const& operator=( Animal const& rhs);
-		virtual ~Animal( void );
+		Animal();
+		Animal(Animal const& rhs);
+		Animal const& operator=(Animal const& rhs);
+		virtual ~Animal();
 
-		std::string 		getType( void ) const;
-		virtual void		makeSound( void ) const;
+		virtual std::string getType(void) const;
+		virtual void		makeSound(void) const;
 		
 	protected:
 		 
