@@ -6,7 +6,7 @@
 /*   By: cariencaljouw <cariencaljouw@student.co      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/30 17:13:38 by cariencaljo   #+#    #+#                 */
-/*   Updated: 2023/08/31 14:32:51 by cariencaljo   ########   odam.nl         */
+/*   Updated: 2023/09/08 13:08:02 by ccaljouw      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,7 @@ class Cure : public AMateria
 
 	private:
 };
+
+std::ostream& operator<<(std::ostream& o, Cure const& i);
 
 #endif

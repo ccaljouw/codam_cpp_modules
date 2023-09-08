@@ -6,7 +6,7 @@
 /*   By: cariencaljouw <cariencaljouw@student.co      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/30 17:07:21 by cariencaljo   #+#    #+#                 */
-/*   Updated: 2023/09/04 12:45:07 by ccaljouw      ########   odam.nl         */
+/*   Updated: 2023/09/08 13:10:28 by ccaljouw      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ class Character : public ICharacter
 		void equip(AMateria* m);
 		void unequip(int idx);
 		void use(int idx, ICharacter& target);
+		void printInventory(void) const;
 		
 	private:
 	

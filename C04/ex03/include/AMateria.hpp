@@ -6,7 +6,7 @@
 /*   By: cariencaljouw <cariencaljouw@student.co      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/30 16:54:12 by cariencaljo   #+#    #+#                 */
-/*   Updated: 2023/08/31 22:43:47 by cariencaljo   ########   odam.nl         */
+/*   Updated: 2023/09/08 13:05:07 by ccaljouw      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,7 @@ class AMateria {
 		std::string	_type;
 	
 };
+
+std::ostream& operator<<(std::ostream& o, AMateria const& i);
 
 #endif

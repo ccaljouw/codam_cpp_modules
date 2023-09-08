@@ -6,7 +6,7 @@
 /*   By: cariencaljouw <cariencaljouw@student.co      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/30 17:06:58 by cariencaljo   #+#    #+#                 */
-/*   Updated: 2023/09/04 12:49:15 by ccaljouw      ########   odam.nl         */
+/*   Updated: 2023/09/08 13:35:26 by ccaljouw      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ Character::Character( void ) {
 		this->_inventory[i] = nullptr;
 	this->_oldInventory = nullptr;
 	this->_oldInventorySize = 0;
-	std::cout << "Default Character constructor called" << std::endl;
 	return;
 }
 
@@ -29,13 +28,11 @@ Character::Character( std::string name )  {
 		this->_inventory[i] = nullptr;
 	this->_oldInventory = nullptr;
 	this->_oldInventorySize = 0;
-	std::cout << "Character constructor called with type " << this->_name << std::endl;
 	return;
 }
 
 Character::Character( Character const& rhs ) {
 	*this = rhs;
-	std::cout << "Character coppy constructor called with type " << this->_name << std::endl;
 	return;
 }
 
@@ -51,18 +48,17 @@ Character const& Character::operator=( Character const& rhs ) {
 		if (rhs._inventory[i])
 			this->equip(rhs._inventory[i]->clone());
 	}
-	std::cout << "Character coppy assignment constructor called with type " << this->_name << std::endl;
 	return *this;
 }
 
 Character::~Character( void ) {
-	std::cout << "Character destructor called on " << this->getName() << std::endl;
 	for(int i = 0; i < 4; i++) {
 		if (this->_inventory[i])
 			delete this->_inventory[i];
 	}
 	for (int i = 0; i < this->_oldInventorySize; i++)
-		delete this->_oldInventory;
+		if (this->_oldInventory[i])
+		delete this->_oldInventory[i];
 	delete [] this->_oldInventory;
 	return;
 }
@@ -114,5 +110,17 @@ void		Character::addToOldInventory(AMateria* m) {
 	this->_oldInventory = temp;
 	this->_oldInventory[this->_oldInventorySize] = m;
 	this->_oldInventorySize++;
+	return;
+}
+
+void	Character::printInventory(void) const {
+	std::cout << "Current character inventory:" << std::endl;
+	for(int i = 0; i < 4; i++) {
+		std::cout << "[" << i << "]";
+		if(this->_inventory[i])
+			std::cout << this->_inventory[i]->getType() << std::endl;
+		else
+			std::cout << "empty slot" << std::endl;
+	}
 	return;
 }

@@ -6,7 +6,7 @@
 /*   By: cariencaljouw <cariencaljouw@student.co      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/30 19:45:20 by cariencaljo   #+#    #+#                 */
-/*   Updated: 2023/08/31 18:18:36 by cariencaljo   ########   odam.nl         */
+/*   Updated: 2023/09/08 13:21:23 by ccaljouw      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,11 @@
 MateriaSource::MateriaSource( void ) {
 	for (int i = 0; i < 4; i++)
 		this->_inventory[i] = NULL;
-	std::cout << "Default MateriaSource constructor called" << std::endl;
 	return;
 }
 
 MateriaSource::MateriaSource(MateriaSource const& rhs) {
 	*this = rhs;
-	std::cout << "MateriaSource copy constructor called" << std::endl;
 	return;
 }
 
@@ -38,7 +36,6 @@ MateriaSource const& MateriaSource::operator=(MateriaSource const& rhs) {
 		if (rhs._inventory[i])
 			this->_inventory[i] = rhs._inventory[i]->clone();
 	}
-	std::cout << "MateriaSource copy assignment constructor called" << std::endl;	
 	return *this;
 }
 
@@ -47,7 +44,6 @@ MateriaSource::~MateriaSource() {
 		if (this->_inventory[i])
 			delete _inventory[i];
 	}
-	std::cout << "MateriaSource destructor called"<< std::endl;
 	return;
 }
 
@@ -68,3 +64,16 @@ AMateria* MateriaSource::createMateria(std::string const & type) {
 	}
 	return 0;
 }
+
+void	MateriaSource::printInventory(void) const {
+	std::cout << "Current material inventory:" << std::endl;
+	for(int i = 0; i < 4; i++) {
+		std::cout << "[" << i << "]";
+		if(this->_inventory[i])
+			std::cout << this->_inventory[i]->getType() << std::endl;
+		else
+			std::cout << "empty slot" << std::endl;
+	}
+	return;
+}
+

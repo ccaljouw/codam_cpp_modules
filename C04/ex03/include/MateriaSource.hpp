@@ -6,7 +6,7 @@
 /*   By: cariencaljouw <cariencaljouw@student.co      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/30 19:43:24 by cariencaljo   #+#    #+#                 */
-/*   Updated: 2023/08/31 13:43:56 by cariencaljo   ########   odam.nl         */
+/*   Updated: 2023/09/08 12:58:33 by ccaljouw      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,9 @@ class MateriaSource : public IMateriaSource
 		MateriaSource const& operator=(MateriaSource const& rhs);
 		~MateriaSource(void);
 		
-		void learnMateria(AMateria*);
-		AMateria* createMateria(std::string const & type);
+		void 			learnMateria(AMateria*);
+		AMateria*		createMateria(std::string const & type);
+		void			printInventory(void) const;
 	
 	private:
 		

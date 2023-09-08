@@ -6,7 +6,7 @@
 /*   By: cariencaljouw <cariencaljouw@student.co      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/30 17:12:56 by cariencaljo   #+#    #+#                 */
-/*   Updated: 2023/08/31 14:32:56 by cariencaljo   ########   odam.nl         */
+/*   Updated: 2023/09/08 13:08:12 by ccaljouw      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,7 @@ class Ice : public AMateria
 
 	private:
 };
+
+std::ostream& operator<<(std::ostream& o, Ice const& i);
 
 #endif

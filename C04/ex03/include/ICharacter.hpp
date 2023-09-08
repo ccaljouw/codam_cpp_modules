@@ -6,7 +6,7 @@
 /*   By: cariencaljouw <cariencaljouw@student.co      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/30 16:54:07 by cariencaljo   #+#    #+#                 */
-/*   Updated: 2023/08/31 18:03:13 by cariencaljo   ########   odam.nl         */
+/*   Updated: 2023/09/08 13:12:24 by ccaljouw      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ class ICharacter {
 		virtual void equip(AMateria* m) = 0;
 		virtual void unequip(int idx) = 0;
 		virtual void use(int idx, ICharacter& target) = 0;
+		virtual void printInventory(void) const = 0;
 	
 };
 
