@@ -6,7 +6,7 @@
 /*   By: ccaljouw <ccaljouw@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/30 10:48:41 by ccaljouw      #+#    #+#                 */
-/*   Updated: 2023/09/08 10:54:55 by ccaljouw      ########   odam.nl         */
+/*   Updated: 2023/09/08 12:14:30 by ccaljouw      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 void leaks(void) {
 	std::cout << "---------------------------------" << std::endl;
-	system("leaks brain -q");
+	system("leaks abstract -q");
 	std::cout << "---------------------------------" << std::endl;
 }
 
