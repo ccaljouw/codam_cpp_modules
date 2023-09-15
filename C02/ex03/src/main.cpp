@@ -6,7 +6,7 @@
 /*   By: cariencaljouw <cariencaljouw@student.co      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/23 14:31:32 by cariencaljo   #+#    #+#                 */
-/*   Updated: 2023/09/06 11:36:57 by ccaljouw      ########   odam.nl         */
+/*   Updated: 2023/09/15 08:36:30 by cariencaljo   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,15 +34,9 @@ A(0,0) -----P3(8, 0)----------------- C(30,0)			P3 not inside
 					P4(15, -3)							P4 not inside
 */
 
-void leaks(void) {
-	std::cout << "--------------------------------" << std::endl;
-	system("leaks bsp -q");
-	std::cout << "--------------------------------" << std::endl;	
-}
 
 int main( void )
 {
-	atexit(leaks);
 	{
 		Point	A;
 		Point	B(0, 1);

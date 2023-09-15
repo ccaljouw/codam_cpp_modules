@@ -32,3 +32,4 @@ Sample&  operator=(const Sample& t) {
 // C03 ex03 why does the include not work correct?
 // include copy and assignment constructors?
 // lookup flags
+// how to calculate fixed point from float

@@ -6,7 +6,7 @@
 /*   By: cariencaljouw <cariencaljouw@student.co      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/23 14:31:29 by cariencaljo   #+#    #+#                 */
-/*   Updated: 2023/09/06 09:39:45 by ccaljouw      ########   odam.nl         */
+/*   Updated: 2023/09/15 08:34:46 by cariencaljo   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@ class Fixed {
 	
 	public:
 
-		Fixed();
-		Fixed(const Fixed& rhs);
+		Fixed( void );
+		Fixed( const Fixed& rhs);
 		Fixed&  operator=(const Fixed& rhs);
-		~Fixed();
+		~Fixed( void );
 		
 		
 		int		getRawBits(void) const;
