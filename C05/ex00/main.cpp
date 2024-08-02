@@ -6,7 +6,7 @@
 /*   By: cariencaljouw <cariencaljouw@student.co      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/08/02 16:09:39 by cariencaljo   #+#    #+#                 */
-/*   Updated: 2024/08/02 21:28:31 by cariencaljo   ########   odam.nl         */
+/*   Updated: 2024/08/02 21:31:13 by cariencaljo   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,12 @@
 
 void leaks(void) {
 	std::cout << "---------------------------------" << std::endl;
-	system("leaks brain -q");
+	system("leaks bureaucrat -q");
 	std::cout << "---------------------------------" << std::endl;
 }
 
 int main() {
+  atexit(leaks);
   try {
     Bureaucrat best("Best", 1);
     std::cout << best << std::endl;
