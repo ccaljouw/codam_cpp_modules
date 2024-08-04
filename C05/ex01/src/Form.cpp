@@ -56,13 +56,13 @@ const char *Form::GradeTooHighException::what() const throw() {
 }
 
 std::ostream& operator<<(std::ostream& out, const Form& form) {
-    out << "Form: " << form.getName() << " is: ";
+    out << form.getName() << "\n- ";
     if (form.getSigned()) {
-        out << "signed";
+        out << "Signed";
     } else {
-        out << "not signed\n";
+        out << "Not signed\n- ";
     }
-    out << form.getSignGrade() << " required to sign\n" \
+    out << form.getSignGrade() << " required to sign\n- " \
       << form.getExecGrade() << " required to execute." << std::endl;
     return out;
 }

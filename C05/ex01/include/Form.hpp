@@ -20,7 +20,7 @@ class Form {
     int   getExecGrade() const;
     bool  getSigned() const;
 
-    void beSigned(Bureaucrat &bureaucrat);
+    void beSigned(Bureaucrat& bureaucrat);
 
     class GradeTooLowException;
     class GradeTooHighException;
