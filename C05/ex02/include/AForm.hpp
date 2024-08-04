@@ -22,12 +22,12 @@ class AForm {
     void  beSigned(Bureaucrat& bureaucrat);
     void  beExecuted(Bureaucrat& bureaucrat);
 
-    class GradeTooLowException;
-    class GradeTooHighException;
-  
     virtual void execute(Bureaucrat const& executor) const = 0;
 
-  protected:
+  private:
+    class GradeTooLowException;
+    class GradeTooHighException;
+    
     const     std::string _name;
     bool      _signed;
     const int _signGrade;

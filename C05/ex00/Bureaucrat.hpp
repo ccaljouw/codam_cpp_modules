@@ -5,36 +5,35 @@
 
 class Bureaucrat {
   public:
-      Bureaucrat(std::string name, int grade);
-      ~Bureaucrat();
+    Bureaucrat(std::string name, int grade);
+    ~Bureaucrat();
 
-      std::string getName() const;
-      int getGrade() const;
-      
-      void addGrade(void);
-      void subGrade(void);
-
-      class GradeTooLowException;
-      class GradeTooHighException;
+    std::string getName() const;
+    int getGrade() const;
     
-  private:
-  
-      const std::string _name;
-      int _grade;
+    void addGrade(void);
+    void subGrade(void);
 
-      Bureaucrat();
-      Bureaucrat(const Bureaucrat &obj);
-      Bureaucrat& operator=(const Bureaucrat &obj);
+  private:
+    class GradeTooLowException;
+    class GradeTooHighException;
+    
+    const std::string _name;
+    int _grade;
+
+    Bureaucrat();
+    Bureaucrat(const Bureaucrat &obj);
+    Bureaucrat& operator=(const Bureaucrat &obj);
 };
 
 class Bureaucrat::GradeTooLowException : public std::exception {
   public:
-      virtual const char *what() const throw();
+    virtual const char *what() const throw();
 };
 
 class Bureaucrat::GradeTooHighException: public std::exception {
   public:
-      virtual const char *what() const throw();
+    virtual const char *what() const throw();
 };
 
 std::ostream &operator<<(std::ostream &out, const Bureaucrat &obj);

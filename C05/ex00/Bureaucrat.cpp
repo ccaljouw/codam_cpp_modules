@@ -2,7 +2,7 @@
 #include <iostream>
 
 Bureaucrat::Bureaucrat() : _name("default"), _grade(150) {
-    return;
+  return;
 }
 
 Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name) {
@@ -60,8 +60,7 @@ const char *Bureaucrat::GradeTooLowException::what() const throw(){
   return "Grade Too Low!";
 }
 
-std::ostream &operator<<(std::ostream &out, const Bureaucrat &bureaucrat)
-{
+std::ostream &operator<<(std::ostream &out, const Bureaucrat &bureaucrat) {
   out << bureaucrat.getName() << ", bureaucrat grade " << bureaucrat.getGrade();
   return (out);
 }

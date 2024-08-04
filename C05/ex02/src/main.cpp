@@ -6,7 +6,7 @@
 /*   By: cariencaljouw <cariencaljouw@student.co      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/08/02 16:09:39 by cariencaljo   #+#    #+#                 */
-/*   Updated: 2024/08/04 15:37:12 by cariencaljo   ########   odam.nl         */
+/*   Updated: 2024/08/04 17:16:32 by cariencaljo   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -145,8 +145,8 @@ void testShrubberyCreationForm(std::string target) {
 int main(int argc, char **argv) {
   atexit(leaks);
   
-  // testPresidentialPardonForm();
-  // testRobotomyRequestForm();
+  testPresidentialPardonForm();
+  testRobotomyRequestForm();
   if (argc == 2)
     testShrubberyCreationForm(argv[1]);
   else

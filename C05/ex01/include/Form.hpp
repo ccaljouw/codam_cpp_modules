@@ -21,10 +21,10 @@ class Form {
 
     void beSigned(Bureaucrat& bureaucrat);
 
+  private:
     class GradeTooLowException;
     class GradeTooHighException;
-  
-  private:
+
     const     std::string _name;
     bool      _signed;
     const int _signGrade;
