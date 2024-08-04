@@ -6,11 +6,12 @@
 /*   By: cariencaljouw <cariencaljouw@student.co      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/08/02 16:09:39 by cariencaljo   #+#    #+#                 */
-/*   Updated: 2024/08/04 09:42:40 by cariencaljo   ########   odam.nl         */
+/*   Updated: 2024/08/04 09:59:31 by cariencaljo   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 #include <iostream>
 
 void leaks(void) {

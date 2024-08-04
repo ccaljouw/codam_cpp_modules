@@ -6,7 +6,7 @@
 /*   By: cariencaljouw <cariencaljouw@student.co      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/08/02 16:09:39 by cariencaljo   #+#    #+#                 */
-/*   Updated: 2024/08/02 21:31:13 by cariencaljo   ########   odam.nl         */
+/*   Updated: 2024/08/04 09:42:22 by cariencaljo   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,14 @@
 #include <iostream>
 
 void leaks(void) {
-	std::cout << "---------------------------------" << std::endl;
+	std::cout << "*********************************" << std::endl;
 	system("leaks bureaucrat -q");
-	std::cout << "---------------------------------" << std::endl;
+	std::cout << "*********************************" << std::endl;
 }
 
 int main() {
   atexit(leaks);
+  std::cout << "---------------------------------" << std::endl;
   try {
     Bureaucrat best("Best", 1);
     std::cout << best << std::endl;
@@ -30,22 +31,22 @@ int main() {
 
     Bureaucrat middle("Middle", 75);
     std::cout << middle << std::endl;
-
+  std::cout << "---------------------------------" << std::endl;
     try {      
-      std::cout << "Construction with low value" << std::endl;
+      std::cout << "CONSTRUCTION WITH VALUE THAT IS TOO HIGH\n" << std::endl;
       Bureaucrat tooGood("TooGood", 0);
     } catch(const std::exception& e){
       std::cout << e.what() << std::endl;
     }
-
+  std::cout << "---------------------------------" << std::endl;
     try {
-      std::cout << "Construction with high value" << std::endl;
+      std::cout << "CONSTRUCTION WITH VALUE THAT IS TOO LOW\n" << std::endl;
       Bureaucrat tooBad("TooBad", 151);
       std::cout << tooBad << std::endl;
     } catch(const std::exception& e){
       std::cout << e.what() << std::endl;
     }
-
+  std::cout << "---------------------------------" << std::endl;
     try{
       std::cout << middle << std::endl;
       middle.addGrade();
@@ -55,39 +56,22 @@ int main() {
     } catch(const std::exception& e) {
       std::cout << e.what() << std::endl;
     }
-
+  std::cout << "---------------------------------" << std::endl;
     try {
-      std::cout << "Adding to min value" << std::endl;
+      std::cout << best << std::endl;
+      std::cout << "ADDING TO MIN VALUE\n" << std::endl;
       best.addGrade();
     } catch(const std::exception& e) {
       std::cout << e.what() << std::endl;
     }
-
-    try {
-      std::cout << best << std::endl;
-      best.subGrade();
-      std::cout << best << std::endl;
-    } catch(const std::exception& e) {
-      std::cout << e.what() << std::endl;
-    }
-
+  std::cout << "---------------------------------" << std::endl;
     try {
       std::cout << worst << std::endl;
-      worst.addGrade();
-      std::cout << worst << std::endl;
-    } catch(const std::exception& e) {
-      std::cerr << e.what() << std::endl;
-    }
-
-    try {
-      worst.subGrade();
-      std::cout << worst << std::endl;
-      std::cout << "Subctracting from max vanlue" << std::endl;
+      std::cout << "SUBTRACTING FROM MAX VALUE\n" << std::endl;
       worst.subGrade();
     } catch(const std::exception& e) {
       std::cerr << e.what() << std::endl;
     }
-    
   } catch(const std::exception& e) {
     std::cerr << e.what() << std::endl;
   }
