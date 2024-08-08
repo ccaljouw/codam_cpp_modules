@@ -1,0 +1,56 @@
+1. Implicit Conversions
+C++ allows certain conversions to happen automatically, known as implicit conversions. These occur when the compiler converts one type to another without explicit instruction from the programmer.
+
+Examples:
+Integer to Floating-Point: Converting an int to a float or double.
+Floating-Point to Integer: Converting a float or double to an int (note: this truncates the decimal part).
+Promotions: Converting a char to an int, or an int to a long.
+Potential Issues:
+
+Loss of Precision: Converting a double to an int can result in loss of decimal information.
+Overflow: Converting a larger type to a smaller one (e.g., long to short) can cause overflow if the value exceeds the range of the smaller type.
+
+2. Explicit Conversions (Casting)
+When you want to convert types explicitly, you can use casting. C++ provides several ways to do this:
+
+static_cast: Used for most standard conversions.
+
+3. Conversions Between Primitive Types
+Integral Conversions: Converting between integer types. Note the possibility of truncation or overflow.
+Floating-point Conversions: Converting between float and double. Loss of precision may occur.
+Boolean Conversions: Any non-zero integer or non-null pointer converts to true; zero or null converts to false.
+
+4. Conversions Between Custom and Primitive Types
+You can define custom conversions between your types and primitive types using:
+
+
+5. Type Coercion in Expressions
+In mixed-type expressions, C++ may implicitly convert types to ensure consistent operand types. For example:
+
+6. Best Practices
+Prefer explicit casting to implicit conversions where clarity is essential.
+Use C++ style casts (static_cast, etc.) over C-style casts for better type safety and readability.
+Be cautious of narrowing conversions that can lead to data loss or undefined behavior.
+Utilize conversion operators and constructors judiciously to prevent accidental conversions that may lead to subtle bugs.
+
+a static method (also known as a static member function) is a member function of a class that is associated with the class itself 
+rather than with any specific instance of the class. This means that static methods can be called on the class itself, 
+without the need to instantiate an object of that class.
+
+
+COMVERSION
+1. Integer Literals
+Format: A sequence of digits, optionally preceded by a - or + sign.
+Regular Expression: ^[+-]?\d+$
+
+2. Floating-Point Literals
+Format:
+A sequence of digits followed by a decimal point and optionally more digits.
+May include an exponent part, represented by e or E, followed by an optional sign and digits.
+Regular Expression: ^[+-]?\d*\.?\d+([eE][+-]?\d+)?$
+
+3. Character Literals
+Format: A single character enclosed in single quotes. Special characters may include escape sequences like '\n'.
+Regular Expression: ^'.'$ for simple characters or use more detailed parsing for escape sequences.
+To handle escape sequences, you'd need a more complex check.
+
