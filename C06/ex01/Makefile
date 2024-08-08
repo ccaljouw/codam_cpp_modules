@@ -1,12 +1,12 @@
 # **************************************************************************** #
 #                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: ccaljouw <ccaljouw@student.42.fr>          +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/08/30 10:48:44 by ccaljouw          #+#    #+#              #
-#    Updated: 2024/08/08 12:52:51 by ccaljouw         ###   ########.fr        #
+#                                                         ::::::::             #
+#    Makefile                                           :+:    :+:             #
+#                                                      +:+                     #
+#    By: ccaljouw <ccaljouw@student.42.fr>            +#+                      #
+#                                                    +#+                       #
+#    Created: 2023/08/30 10:48:44 by ccaljouw      #+#    #+#                  #
+#    Updated: 2024/08/08 15:06:41 by cariencaljo   ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ CFLAGS		= -Wall -Wextra -Werror -Wpedantic -Wshadow -Wnon-virtual-dtor -Wold-sty
 				-Wunused -Woverloaded-virtual -Wconversion -Wsign-conversion -Wfloat-conversion -Wformat=2 -Werror=vla \
 				-Wnull-dereference -std=c++11
 INCLUDE		= -I include/
-OBJ_FILES	= $(addprefix obj/, main.o  Serializer.o)
+OBJ_FILES	= $(addprefix obj/, main.o   Serializer.o Data.o)
 
 
 all: $(NAME)
@@ -31,7 +31,7 @@ all: $(NAME)
 $(NAME): $(OBJ_FILES)
 	@$(CC) $(OBJ_FILES) -o $(NAME) $(CFLAGS) $(INCLUDE)
 	
-$(OBJ_FILES): obj/%.o: %.cpp 
+$(OBJ_FILES): obj/%.o: src/%.cpp 
 	@mkdir -p $(dir $@)
 	@echo "$(GREEN)$(BOLD)Compiling $(NAME):$(RESET) $(notdir $<)"
 	@$(CC) -c $(CFLAGS) $(INCLUDE) -o $@ $<
