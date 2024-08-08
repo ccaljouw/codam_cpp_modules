@@ -1,16 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: ccaljouw <ccaljouw@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/02 16:09:39 by cariencaljo       #+#    #+#             */
-/*   Updated: 2024/08/08 12:55:40 by ccaljouw         ###   ########.fr       */
+/*                                                        ::::::::            */
+/*   main.cpp                                           :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: ccaljouw <ccaljouw@student.42.fr>            +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2024/08/02 16:09:39 by cariencaljo   #+#    #+#                 */
+/*   Updated: 2024/08/08 17:31:23 by cariencaljo   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+#include "type.hpp"
 
 void leaks(void) {
 	std::cout << "*********************************" << std::endl;
@@ -18,28 +19,14 @@ void leaks(void) {
 	std::cout << "*********************************" << std::endl;
 }
 
-// static void test(std::string str);
-// static void testInput(void);
-
-int main(int argc, char *argv[])
+int main()
 {
-    atexit(leaks);
-    if (argc == 2) {
-        std::cout << argv[0] << ", " << argv[1] << std::endl;
-        // do something
-    }
-    else {
-        std::cout << "No input provided, running standard tests" << std::endl;
-        // testInput();
-    }
+  for(int i = 0; i < 10; i++) {
+    Base* instance = generate();
+    identify(instance);
+    identify(*instance);
+    delete instance;
+    std::cout << "---------------------------------" << std::endl;
+  }
+    
 }
-
-// static void test(std::string str) {
-//     std::cout << "Testing: " << str << std::endl;
-//     // do something
-//     std::cout << std::endl;
-// }
-
-// static void testInput(void) {
-//     // write tests
-// }
