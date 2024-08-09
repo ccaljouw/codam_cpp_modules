@@ -12,10 +12,10 @@ class MutantStack : public std::stack<T> {
     ~MutantStack();
 
     typedef typename std::stack<T>::container_type::iterator iterator;
-    typedef typename std::stack<T>::container_type::reverse_iterator reverse_iterator;
-
     iterator begin();
     iterator end();
+
+    typedef typename std::stack<T>::container_type::reverse_iterator reverse_iterator;
     reverse_iterator rbegin();
     reverse_iterator rend();
 };

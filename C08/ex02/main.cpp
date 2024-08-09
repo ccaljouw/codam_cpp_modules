@@ -1,5 +1,7 @@
 #include "MutantStack.hpp"
 #include <iostream>
+#include <list>
+#include <deque>
 
 
 void leaks(void) {
@@ -8,77 +10,118 @@ void leaks(void) {
 	std::cout << "*********************************" << std::endl;
 }
 
-void printStackWithIterator(MutantStack<int> mutantStack) {
+template <typename T>
+void printStackWithIterator(T mutantStack) {
   std::cout << "Normal iterator: ";
-  for (MutantStack<int>::iterator it = mutantStack.begin(); it != mutantStack.end(); it++) {
+  for (typename T::iterator it = mutantStack.begin(); it != mutantStack.end(); it++) {
     std::cout << *it << " ";
   }
   std::cout << std::endl;
 }
 
-void printStackWithReverseIterator(MutantStack<int> mutantStack) {
+template <typename T>
+void printStackWithReverseIterator(T mutantStack) {
   std::cout << "Reverse iterator: ";
-  for (MutantStack<int>::reverse_iterator it = mutantStack.rbegin(); it != mutantStack.rend(); it++) {
+  for (typename T::reverse_iterator it = mutantStack.rbegin(); it != mutantStack.rend(); it++) {
     std::cout << *it << " ";
   }
   std::cout << std::endl;
+}
+
+template <typename T>
+void addElementsPushBack(T& container) {
+  for (int i = 0; i < 5; i++) {
+    container.push_back(i);
+  }
+}
+
+template <typename T>
+void addElementsPush(T& container) {
+  for (int i = 0; i < 5; i++) {
+    container.push(i);
+  }
+}
+
+template <typename T>
+void showContainer(T container) {
+  printStackWithIterator(container);
+  printStackWithReverseIterator(container);
+  std::cout << "Stack empty?: " << container.empty() << std::endl;
+  std::cout << "Stack size: " << container.size() << "\n" << std::endl;
 }
 
 int main()
 {
   atexit(leaks);
   
-  std::cout << "\nCREATING EMPTY MUTANTSTACK" << std::endl;
+  std::cout << "\nCREATING EMPTY CONTAINERS" << std::endl;
+  std::cout << "---------------------------------" << std::endl;
   MutantStack<int> mutantStack;
-  printStackWithIterator(mutantStack);
-  std::cout << "Stack empty?: " << mutantStack.empty() << std::endl;
-  std::cout << "Stack size: " << mutantStack.size() << std::endl; 
+  std::list<int> listContainer;
+  std::deque<int> dequeContainer;
+  showContainer(mutantStack);
+  showContainer(listContainer);
+  showContainer(dequeContainer);
 
-  std::cout << "\nADDING 5 ELEMENTS TO MUTANTSTACK" << std::endl;
-  for (int i = 0; i < 5; i++) {
-    mutantStack.push(i);
-  }
-  std::cout << "Stack empty?: " << mutantStack.empty() << std::endl;
-  std::cout << "Stack size: " << mutantStack.size() << std::endl; 
-  printStackWithIterator(mutantStack);
-  printStackWithReverseIterator(mutantStack);
+  std::cout << "---------------------------------" << std::endl;
+  
+  std::cout << "\nADDING ELEMENTS TO CONTAINERS" << std::endl;
+  std::cout << "---------------------------------" << std::endl;
+  addElementsPush(mutantStack);
+  addElementsPushBack(listContainer);
+  addElementsPushBack(dequeContainer);
+  showContainer(mutantStack);
+  showContainer(listContainer);
+  showContainer(dequeContainer);
+  std::cout << "---------------------------------" << std::endl;
 
-  std::cout << "\nSHOW STACK" << std::endl;
-  std::cout << "Top of stack: " << mutantStack.top() << std::endl;
-  std::cout << "Pop top of stack" << std::endl;
+  std::cout << "\nPOP CONTAINER ELEMENT" << std::endl;
+  std::cout << "---------------------------------" << std::endl;
   mutantStack.pop();
-  printStackWithIterator(mutantStack);
-  printStackWithReverseIterator(mutantStack);
+  listContainer.pop_back();
+  dequeContainer.pop_back();
+  std::cout << "Top of stack: " << mutantStack.top() << std::endl;
+  showContainer(mutantStack);
+  std::cout << "Top of stack: " << listContainer.back() << std::endl;
+  showContainer(listContainer);
+  std::cout << "Top of stack: " << dequeContainer.back() << std::endl;
+  showContainer(dequeContainer);
+  std::cout << "---------------------------------" << std::endl;
 
   std::cout << "\nCOPY MUTANTSTACK" << std::endl;
-  MutantStack<int> mutantStackCopy(mutantStack);
-  printStackWithIterator(mutantStackCopy);
+  std::cout << "---------------------------------" << std::endl;
+  MutantStack<int> containterCopy(mutantStack);
+  printStackWithIterator(containterCopy);
+  std::cout << "---------------------------------" << std::endl;
 
   std::cout << "\nASSIGN MUTANTSTACK" << std::endl;
-  MutantStack<int> mutantStackAssign;
-  mutantStackAssign = mutantStack;
-  printStackWithIterator(mutantStackAssign);
+  std::cout << "---------------------------------" << std::endl;
+  MutantStack<int> containerAssign = mutantStack;
+  printStackWithIterator(containerAssign);
+  std::cout << "---------------------------------" << std::endl;
+
+  std::cout << "\nCOPY MUTANTSTACK TO STACK" << std::endl;
+  std::cout << "---------------------------------" << std::endl;
+  std::stack<int> stackCopy(mutantStack);
+  std::cout << "Top of stack: " << stackCopy.top() << std::endl;
+  std::cout << "Stack empty?: " << stackCopy.empty() << std::endl;
+  std::cout << "Stack size: " << stackCopy.size() << "\n" << std::endl;
+  std::cout << "Top of stack: " << mutantStack.top() << std::endl;
+  std::cout << "Stack empty?: " << mutantStack.empty() << std::endl;
+  std::cout << "Stack size: " << mutantStack.size() << "\n" << std::endl;
+  std::cout << "---------------------------------" << std::endl;
 
   std::cout << "\nCLEAR MUTANTSTACK" << std::endl;
+  std::cout << "---------------------------------" << std::endl;
   mutantStack.pop();
-  std::cout << "Stack empty?: " << mutantStack.empty() << std::endl;
-  std::cout << "Stack size: " << mutantStack.size() << std::endl;
-
   mutantStack.pop();
-  std::cout << "Stack empty?: " << mutantStack.empty() << std::endl;
-  std::cout << "Stack size: " << mutantStack.size() << std::endl;
-
   mutantStack.pop();
-  std::cout << "Stack empty?: " << mutantStack.empty() << std::endl;
-  std::cout << "Stack size: " << mutantStack.size() << std::endl;
-
   mutantStack.pop();
-  std::cout << "Stack empty?: " << mutantStack.empty() << std::endl;
-  std::cout << "Stack size: " << mutantStack.size() << std::endl;
-
   printStackWithIterator(mutantStack);
-  printStackWithIterator(mutantStackCopy);
-  printStackWithIterator(mutantStackAssign);
+  printStackWithIterator(containterCopy);
+  printStackWithIterator(containerAssign);
+  std::cout << "---------------------------------" << std::endl;
+
 
   return 0;
 }
