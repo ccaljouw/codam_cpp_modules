@@ -41,6 +41,14 @@ T& Array<T>::operator[](unsigned int i) {
 }
 
 template <typename T>
+const T& Array<T>::operator[](unsigned int i) const {
+  if (i >= this->_size) {
+    throw std::out_of_range("Index out of range");
+  }
+  return this->_elements[i];
+}
+
+template <typename T>
 unsigned int Array<T>::size() const {
   return this->_size;
 }
