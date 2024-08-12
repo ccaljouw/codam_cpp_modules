@@ -20,6 +20,7 @@ RPN::~RPN() {
 }
 
 void RPN::calculate(std::string IPN) {
+  std::cout << "Calculating:\t" << IPN << std::endl;
   std::string tokens = "+-*/";
   for (char ch : IPN) {
     if (isdigit(ch)) {
@@ -34,10 +35,15 @@ void RPN::calculate(std::string IPN) {
     }
   }
   if (this->_stack->size() != 1) {
-    std::cerr << "Invalid input, not enough operands" << std::endl;
+    std::cerr << "Invalid input, remaining stack: " << std::endl;
+    while(!this->_stack->empty()) {
+      std::cout << this->_stack->top() << " ";
+      this->_stack->pop();
+    }
+    std::cout << std::endl;
     return;
   } else {
-    std::cout << this->_stack->top() << std::endl;
+    std::cout << "Result:\t\t" << this->_stack->top() << std::endl;
   }
 }
 
