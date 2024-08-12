@@ -1,11 +1,5 @@
 #include "BitcoinExchange.hpp"
 #include <iostream>
-#include <regex>
-#include <string>
-#include <fstream>
-#include <sstream>
-#include <string>
-#include <vector>
 
 
 void leaks(void) {
