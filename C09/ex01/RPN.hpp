@@ -16,7 +16,7 @@ class RPN {
 
   private:
     std::stack<int>* _stack;
-    void runOperation(char op);
+    bool runOperation(char op);
 };
 
 #endif

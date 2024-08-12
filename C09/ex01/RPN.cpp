@@ -26,16 +26,17 @@ void RPN::calculate(std::string IPN) {
     if (isdigit(ch)) {
       this->_stack->push(ch - '0');
     } else if (tokens.find(ch) != std::string::npos) {
-      runOperation(ch);
+      if (!runOperation(ch))
+        return;
     } else {
       if (ch != ' ') {
-        std::cerr << "Invalid input" << std::endl;
+        std::cerr << "Invalid input: invallid character" << std::endl;
         return;
       }
     }
   }
   if (this->_stack->size() != 1) {
-    std::cerr << "Invalid input, remaining stack: " << std::endl;
+    std::cerr << "Invalid input: remaining stack: " << std::endl;
     while(!this->_stack->empty()) {
       std::cout << this->_stack->top() << " ";
       this->_stack->pop();
@@ -47,10 +48,10 @@ void RPN::calculate(std::string IPN) {
   }
 }
 
-void RPN::runOperation(char token) {
+bool RPN::runOperation(char token) {
   if (this->_stack->size() < 2) {
-    std::cerr << "Invallid input, not enough operands" << std::endl;
-    return;
+    std::cerr << "Invallid input: not enough operands" << std::endl;
+    return false;
   }
   int b = _stack->top();
   _stack->pop();
@@ -64,11 +65,20 @@ void RPN::runOperation(char token) {
       _stack->push(a - b);
       break;
     case '*':
+      if (a > INT_MAX / b){
+        std::cerr << "Invallid input: multiplication overflow" << std::endl;
+        return false;
+      }
       _stack->push(a * b);
       break;
     case '/':
+      if (b == 0) {
+        std::cerr << "Invallid input: division by zero" << std::endl;
+        return false;
+      }
       _stack->push(a / b);
       break;
   }
+  return true;
 }
 
