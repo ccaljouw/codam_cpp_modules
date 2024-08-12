@@ -59,14 +59,22 @@ bool RPN::runOperation(char token) {
   _stack->pop();
   switch(token) {
     case '+':
+      if (a > INT_MAX - b){
+        std::cerr << "Invallid input: overflow" << std::endl;
+        return false;
+      }
       _stack->push(a + b);
       break;
     case '-':
+      if (a < INT_MIN + b){
+        std::cerr << "Invallid input: overflow" << std::endl;
+        return false;
+      }
       _stack->push(a - b);
       break;
     case '*':
-      if (a > INT_MAX / b){
-        std::cerr << "Invallid input: multiplication overflow" << std::endl;
+      if ((a > 0 && a > INT_MAX / b) || (a < 0 && a < INT_MIN / b)){
+        std::cerr << "Invallid input: overflow" << std::endl;
         return false;
       }
       _stack->push(a * b);
