@@ -12,7 +12,6 @@ class RPN {
     RPN& operator=(const RPN& rhs);
     ~RPN();
 
-    void printStack() const;
     void calculate(std::string IPN);
 
   private:
