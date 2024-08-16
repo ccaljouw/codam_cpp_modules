@@ -81,15 +81,20 @@ void  PmergeMe::showProcess() const {
   std::cout << "\n---------------------------------" << std::endl;
   std::cout << "Time to parse input: " << this->getParsingTime().count() << " ms" << std::endl;
   std::cout << "---------------------------------" << std::endl;
-  std::cout << "Before: ";
+  std::cout << "Vector before:\t";
   this->printSequence(_numbersToSort);
-  std::cout << "After: ";
+  std::cout << "List Before:\t";
+  this->printSequence(_numbersToSortList);
+  std::cout << "---------------------------------" << std::endl;
+  std::cout << "Vector after:\t";
   this->printSequence(_mainChain);
+  std::cout << "List After:\t";
+  this->printSequence(_mainChainList);
   std::cout << "---------------------------------" << std::endl;
   std::cout << "Time to process a range of " << this->_numbersToSort.size() \
-      << " elements with [std::vector]\t" << this->getSortingTimeVector().count() <<" ms\n";
+      << " elements with [std::vector] " << this->getSortingTimeVector().count() <<" ms\n";
   std::cout << "Time to process a range of " << this->_numbersToSortList.size() \
-      << " elements with [std::list]\t" << this->getSortingTimeList().count() <<" ms\n";
+      << " elements with [std::list]\t " << this->getSortingTimeList().count() <<" ms\n";
   std::cout << "---------------------------------" << std::endl;
 }
 
@@ -166,19 +171,24 @@ std::chrono::duration<double, std::milli> PmergeMe::getSortingTimeVector() const
 }
 
 // LIST
+// TODO: fix this
 void  PmergeMe::createAndComparePairs(std::list<std::pair<int, int>>& pairList) {
   if (_numbersToSortList.empty()) return; 
 
   auto it = _numbersToSortList.begin();
-  while (std::next(it) != _numbersToSortList.end()) {
+  auto end = _numbersToSortList.end();
+  while (it != end) {
+    if (std::next(it) == end) {
+      this->_strangler = *it;
+      break;
+    }
     auto next_it = std::next(it);
     std::pair<int, int> tempPair = std::make_pair(std::max(*it, *next_it), std::min(*it, *next_it));
     pairList.push_back(tempPair);
-    ++it;
-    ++it;
-  }
-  if (it != _numbersToSortList.end()) {
-    this->_strangler = *it;
+    if (next_it == end) {
+      break;
+    }
+    std::advance(it, 2);
   }
 }
 
