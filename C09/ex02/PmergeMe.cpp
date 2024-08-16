@@ -91,10 +91,9 @@ void  PmergeMe::showProcess() const {
   std::cout << "List After:\t";
   this->printSequence(_mainChainList);
   std::cout << "---------------------------------" << std::endl;
-  std::cout << "Time to process a range of " << this->_numbersToSort.size() \
-      << " elements with [std::vector] " << this->getSortingTimeVector().count() <<" ms\n";
-  std::cout << "Time to process a range of " << this->_numbersToSortList.size() \
-      << " elements with [std::list]\t " << this->getSortingTimeList().count() <<" ms\n";
+  std::cout << "Time to process " << this->_numbersToSort.size() \
+      << " elements\nwith [std::vector]\t" << this->getSortingTimeVector().count() <<" ms\n";
+  std::cout << "with [std::list]\t" << this->getSortingTimeList().count() <<" ms\n";
   std::cout << "---------------------------------" << std::endl;
 }
 
