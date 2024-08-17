@@ -132,13 +132,13 @@ void PmergeMe::sortPairsByFirstElement(std::vector<std::pair<int, int>>& pairVec
   _mainChain.push_back(pairVect.front().second);
   _mainChain.push_back(pairVect.front().first);
   for (auto it = pairVect.begin() + 1; it != pairVect.end(); ++it) {
-      _mainChain.push_back(it->first);
-      _pendElements.push_back(it->second);
+    _mainChain.push_back(it->first);
+    _pendElements.push_back(it->second);
   }
 
   // Handle the strangler, if present
   if (_strangler != -1) {
-      _pendElements.push_back(_strangler);
+    _pendElements.push_back(_strangler);
   }
 }
 
@@ -152,17 +152,17 @@ void PmergeMe::insertElemetInMainChainVector(int element) {
 // 3. Insertion sort using Jacobsthal sequence
 void PmergeMe::insertionSortVector() {
 
-    for (size_t index : _jacobsthalSeq) {
-      if (index < _pendElements.size()) {
-        insertElemetInMainChainVector(_pendElements[index]);
-      }
+  for (size_t index : _jacobsthalSeq) {
+    if (index < _pendElements.size()) {
+      insertElemetInMainChainVector(_pendElements[index]);
     }
-    // Insert remaining elements that were not included in the Jacobsthal sequence
-    for (size_t i = 0; i < _pendElements.size(); ++i) {
-      if (std::find(_jacobsthalSeq.begin(), _jacobsthalSeq.end(), i) == _jacobsthalSeq.end()) {
-        insertElemetInMainChainVector(_pendElements[i]);
-      }
+  }
+  // Insert remaining elements that were not included in the Jacobsthal sequence
+  for (size_t i = 0; i < _pendElements.size(); ++i) {
+    if (std::find(_jacobsthalSeq.begin(), _jacobsthalSeq.end(), i) == _jacobsthalSeq.end()) {
+      insertElemetInMainChainVector(_pendElements[i]);
     }
+  }
 }
 
 std::chrono::duration<double, std::milli> PmergeMe::getSortingTimeVector() const {
@@ -203,31 +203,33 @@ void  PmergeMe::sortPairsByFirstElement(std::list<std::pair<int, int>>& pairList
   }
 
   if (_strangler != -1) {
-      _pendElementsList.push_back(_strangler);
+    _pendElementsList.push_back(_strangler);
   }
 }
 
 void PmergeMe::insertionSortList() {
   auto pendIt = _pendElementsList.begin();
+  auto pendEnd = _pendElementsList.end();
   for (size_t index : _jacobsthalSeq) {
     std::advance(pendIt, index);
-    if (pendIt != _pendElementsList.end()) {
-        insertElemetInMainChainList(*pendIt);
+    if (pendIt != pendEnd) {
+      insertElemetInMainChainList(*pendIt);
     }
     pendIt = _pendElementsList.begin();
   }
 
   for (size_t i = 0; i < _pendElementsList.size(); ++i) {
     if (std::find(_jacobsthalSeq.begin(), _jacobsthalSeq.end(), i) == _jacobsthalSeq.end()) {
-        std::advance(pendIt, i);
-        insertElemetInMainChainList(*pendIt);
+      std::advance(pendIt, i);
+      insertElemetInMainChainList(*pendIt);
     }
   }
 }
 
 void  PmergeMe::insertElemetInMainChainList(int element) {
   auto pos = _mainChainList.begin();
-  while (pos != _mainChainList.end() && *pos < element) {
+  auto end = _mainChainList.end();
+  while (pos != end && *pos < element) {
     ++pos;
   }
   _mainChainList.insert(pos, element);
