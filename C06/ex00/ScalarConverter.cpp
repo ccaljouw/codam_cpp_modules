@@ -1,7 +1,7 @@
 #include "ScalarConverter.hpp"
 #include <iostream>
 #include <iomanip>
-#include <regex>
+#include <limits>
 
 ScalarConverter::ScalarConverter() {
   return;

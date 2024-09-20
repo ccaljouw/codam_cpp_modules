@@ -1,30 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   main.cpp                                           :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: cariencaljouw <cariencaljouw@student.co      +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2024/08/02 16:09:39 by cariencaljo   #+#    #+#                 */
-/*   Updated: 2024/08/08 10:46:00 by cariencaljo   ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ccaljouw <ccaljouw@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/08/02 16:09:39 by cariencaljo       #+#    #+#             */
+/*   Updated: 2024/09/20 11:17:22 by ccaljouw         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "ScalarConverter.hpp"
 
-void leaks(void) {
-	std::cout << "*********************************" << std::endl;
-	system("leaks convert -q");
-	std::cout << "*********************************" << std::endl;
-}
-
 static void test(std::string str);
 static void testInput(void);
 
 int main(int argc, char *argv[])
 {
-    atexit(leaks);
     if (argc == 2) {
         ScalarConverter::convert(argv[1]);
     }
