@@ -1,6 +1,7 @@
 #include <iostream>
 #include "Array.hpp"
 #include <string>
+#include <chrono>
 
 #define ENTRIES 5
 int main()
