@@ -1,16 +1,9 @@
 #include "BitcoinExchange.hpp"
 #include <iostream>
-
-
-void leaks(void) {
-	std::cout << "*********************************" << std::endl;
-	system("leaks btc -q");
-	std::cout << "*********************************" << std::endl;
-}
+#include <string>
 
 int main(int argc, char **argv)
 {
-  atexit(leaks);
   if (argc == 1) {
     std::cerr << "Please provide a filename" << std::endl;
     return 1;

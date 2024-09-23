@@ -1,4 +1,5 @@
 #include "RPN.hpp"
+#include <limits.h>
 
 RPN::RPN() {
   this->_stack = new std::stack<int>();

@@ -2,6 +2,7 @@
 # define BITCOIN_H
 
 #include <map>
+#include <string>
 
 class BitcoinExchange {
   public:
