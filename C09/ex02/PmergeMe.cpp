@@ -25,7 +25,6 @@ PmergeMe::PmergeMe(char **input) : _strangler(-1) {
   if (i < 4) {
     throw std::invalid_argument("Not enough input to sort");
   }
-  generateJacobsthalSequence(_pendElements.size());
   _inputParsed = std::chrono::high_resolution_clock::now();
 }
 
@@ -142,6 +141,26 @@ void PmergeMe::sortPairsByFirstElement(std::vector<std::pair<int, int>>& pairVec
   }
 }
 
+// 3. Insertion sort using Jacobsthal sequence
+void PmergeMe::insertionSortVector() {
+  long lastIndex = - 1;
+  generateJacobsthalSequence(_pendElements.size());
+  
+  for (long index : _jacobsthalSeq) {
+    long prevIndex = lastIndex;
+    if (lastIndex >= (long)_pendElements.size())
+      break;
+    if (index > prevIndex) {
+      lastIndex = index;
+      while (index > prevIndex) {
+        if (index < (long)_pendElements.size())
+          insertElemetInMainChainVector(_pendElements[index]);
+        index--;
+      }
+    }
+  }
+}
+
 // std::lower_bound is used to find the first position in the sorted vector where the given 
 // element can be inserted without violating the sorting order.
 void PmergeMe::insertElemetInMainChainVector(int element) {
@@ -149,28 +168,14 @@ void PmergeMe::insertElemetInMainChainVector(int element) {
     _mainChain.insert(pos, element);
 }
 
-// 3. Insertion sort using Jacobsthal sequence
-void PmergeMe::insertionSortVector() {
-
-  for (size_t index : _jacobsthalSeq) {
-    if (index < _pendElements.size()) {
-      insertElemetInMainChainVector(_pendElements[index]);
-    }
-  }
-  // Insert remaining elements that were not included in the Jacobsthal sequence
-  for (size_t i = 0; i < _pendElements.size(); ++i) {
-    if (std::find(_jacobsthalSeq.begin(), _jacobsthalSeq.end(), i) == _jacobsthalSeq.end()) {
-      insertElemetInMainChainVector(_pendElements[i]);
-    }
-  }
-}
-
+// 4. get time sorting vector
 std::chrono::duration<double, std::milli> PmergeMe::getSortingTimeVector() const {
   return _sortedVector - _startVectorSort;
 }
 
+
 // LIST
-// TODO: fix this
+// 1. Create and compair pairs
 void  PmergeMe::createAndComparePairs(std::list<std::pair<int, int>>& pairList) {
   if (_numbersToSortList.empty()) return; 
 
@@ -191,6 +196,8 @@ void  PmergeMe::createAndComparePairs(std::list<std::pair<int, int>>& pairList) 
   }
 }
 
+// 2. sort paris by first element and create main chain and pend
+// the first element of the second sequence can alreay be inserted at the front of the first sequence
 void  PmergeMe::sortPairsByFirstElement(std::list<std::pair<int, int>>& pairList) {
   pairList.sort([](const std::pair<int, int>& a, const std::pair<int, int>& b) {
     return a.first < b.first;
@@ -207,22 +214,31 @@ void  PmergeMe::sortPairsByFirstElement(std::list<std::pair<int, int>>& pairList
   }
 }
 
+// 3. Insertion sort using Jacobsthal sequence
 void PmergeMe::insertionSortList() {
-  auto pendIt = _pendElementsList.begin();
-  auto pendEnd = _pendElementsList.end();
-  for (size_t index : _jacobsthalSeq) {
-    std::advance(pendIt, index);
-    if (pendIt != pendEnd) {
-      insertElemetInMainChainList(*pendIt);
-    }
-    pendIt = _pendElementsList.begin();
-  }
+  std::list<int>::iterator start = _pendElementsList.begin();
+  std::list<int>::iterator pendIt = start;
+  long prevIndex = -1;
+  long k;
 
-  for (size_t i = 0; i < _pendElementsList.size(); ++i) {
-    if (std::find(_jacobsthalSeq.begin(), _jacobsthalSeq.end(), i) == _jacobsthalSeq.end()) {
-      std::advance(pendIt, i);
-      insertElemetInMainChainList(*pendIt);
+  for (long i = 0; i < (long)_jacobsthalSeq.size(); ++i) {
+    if (prevIndex >= (long)_pendElementsList.size())
+      break;
+    k = _jacobsthalSeq[i];
+    if (k < (long)_pendElementsList.size()) {
+      std::advance(pendIt, k);
+    } else {
+      std::advance(pendIt, _pendElementsList.size() - 1);
     }
+    while (k > prevIndex) {
+      if (k < (long)_pendElementsList.size()) {
+        insertElemetInMainChainList(*pendIt);
+        pendIt--;
+      }
+      k--;
+    }
+    pendIt = start;
+    prevIndex = _jacobsthalSeq[i];
   }
 }
 
@@ -235,6 +251,7 @@ void  PmergeMe::insertElemetInMainChainList(int element) {
   _mainChainList.insert(pos, element);
 }
 
+// 4. get time sorting list
 std::chrono::duration<double, std::milli> PmergeMe::getSortingTimeList() const {
   return _sortedList - _startListSort;
 }
