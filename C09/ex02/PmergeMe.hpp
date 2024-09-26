@@ -24,8 +24,8 @@ class PmergeMe {
 
     int                                            _strangler;
     std::vector<size_t>                            _jacobsthalSeq;
-    std::chrono::high_resolution_clock::time_point _startListSort;
-    std::chrono::high_resolution_clock::time_point _sortedList;    
+    std::chrono::high_resolution_clock::time_point _init;
+    std::chrono::high_resolution_clock::time_point _inputParsed;
 
     std::chrono::duration<double, std::milli> getParsingTime() const;
     void                                      generateJacobsthalSequence(size_t n);
@@ -48,24 +48,29 @@ class PmergeMe {
     std::chrono::duration<double, std::milli>      getSortingTimeList() const;
 
     void  createAndComparePairs(std::vector<std::pair<int, int>>& pairVect);
-    void  sortPairsByFirstElement(std::vector<std::pair<int, int>>& pairVect);
+    void  mergeSortVector(std::vector<std::pair<int, int>>& pairVect, int left, int right);
+    void  mergeVector(std::vector<std::pair<int, int>>& pairVect, int left, int mid, int right);
+    void  createTwoChainsVector(std::vector<std::pair<int, int>>& pairVect);
     void  insertionSortVector();
-    void  insertElemetInMainChainVector(int element);
+    void  binaryInsertVector(int element);
 
   
   // list
     std::list<int>                                 _numbersToSortList;
     std::list<int>                                 _mainChainList;
     std::list<int>                                 _pendElementsList;
-    std::chrono::high_resolution_clock::time_point _init;
-    std::chrono::high_resolution_clock::time_point _inputParsed;
+    std::chrono::high_resolution_clock::time_point _startListSort;
+    std::chrono::high_resolution_clock::time_point _sortedList;    
 
     std::chrono::duration<double, std::milli>      getSortingTimeVector() const;
 
     void  createAndComparePairs(std::list<std::pair<int, int>>& pairList);
     void  sortPairsByFirstElement(std::list<std::pair<int, int>>& pairList);
+    std::list<std::pair<int, int>> mergeSortList(std::list<std::pair<int, int>>& pairList);
+    std::list<std::pair<int, int>> mergeList(const std::list<std::pair<int, int>>& left, const std::list<std::pair<int, int>>& right);
+    void  createTwoChainsList(std::list<std::pair<int, int>>& pairList);
     void  insertionSortList();
-    void  insertElemetInMainChainList(int element);
+    void  binaryInsertList(int element);
 
     PmergeMe();
 };

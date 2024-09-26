@@ -51,7 +51,7 @@ void PmergeMe::generateJacobsthalSequence(size_t n) {
   for (size_t i = 2; i < n; i++) {
     _jacobsthalSeq.push_back(_jacobsthalSeq[i - 1] + 2 * _jacobsthalSeq[i - 2]);
   }
-  // return sequence starting from 3rd position as the first element (index 0) of the pend sequence has already been inserted
+  // store sequence starting from 3rd position as the first element (index 0) of the pend sequence has already been inserted
   // and the second and third element from the sequance are both 1
   _jacobsthalSeq.erase(_jacobsthalSeq.begin());
   _jacobsthalSeq.erase(_jacobsthalSeq.begin());
@@ -61,7 +61,8 @@ void PmergeMe::sortFordJohnson() {
   _startVectorSort = std::chrono::high_resolution_clock::now();
   std::vector<std::pair<int, int>> pairVect;
   this->createAndComparePairs(pairVect);
-  this->sortPairsByFirstElement(pairVect);
+  this->mergeSortVector(pairVect, 0, pairVect.size() - 1);
+  this->createTwoChainsVector(pairVect);
   this->insertionSortVector();
   _sortedVector = std::chrono::high_resolution_clock::now();
   _startListSort = std::chrono::high_resolution_clock::now();
@@ -77,23 +78,27 @@ std::chrono::duration<double, std::milli> PmergeMe::getParsingTime() const {
 }
 
 void  PmergeMe::showProcess() const {
-  std::cout << "\n---------------------------------" << std::endl;
-  std::cout << "Time to parse input: " << this->getParsingTime().count() << " ms" << std::endl;
-  std::cout << "---------------------------------" << std::endl;
-  std::cout << "Vector before:\t";
-  this->printSequence(_numbersToSort);
-  std::cout << "List Before:\t";
-  this->printSequence(_numbersToSortList);
-  std::cout << "---------------------------------" << std::endl;
-  std::cout << "Vector after:\t";
-  this->printSequence(_mainChain);
-  std::cout << "List After:\t";
-  this->printSequence(_mainChainList);
-  std::cout << "---------------------------------" << std::endl;
-  std::cout << "Time to process " << this->_numbersToSort.size() \
-      << " elements\nwith [std::vector]\t" << this->getSortingTimeVector().count() <<" ms\n";
-  std::cout << "with [std::list]\t" << this->getSortingTimeList().count() <<" ms\n";
-  std::cout << "---------------------------------" << std::endl;
+  if (!std::is_sorted(_mainChain.begin(), _mainChain.end()) || !std::is_sorted(_mainChainList.begin(), _mainChainList.end()))
+    std::cout << "Sorting Error!" << std::endl;
+  else {
+    std::cout << "\n---------------------------------" << std::endl;
+    std::cout << "Time to parse input: " << this->getParsingTime().count() << " ms" << std::endl;
+    std::cout << "---------------------------------" << std::endl;
+    std::cout << "Vector before:\t";
+    this->printSequence(_numbersToSort);
+    std::cout << "List Before:\t";
+    this->printSequence(_numbersToSortList);
+    std::cout << "---------------------------------" << std::endl;
+    std::cout << "Vector after:\t";
+    this->printSequence(_mainChain);
+    std::cout << "List After:\t";
+    this->printSequence(_mainChainList);
+    std::cout << "---------------------------------" << std::endl;
+    std::cout << "Time to process " << this->_numbersToSort.size() \
+        << " elements\nwith [std::vector]\t" << this->getSortingTimeVector().count() <<" ms\n";
+    std::cout << "with [std::list]\t" << this->getSortingTimeList().count() <<" ms\n";
+    std::cout << "---------------------------------" << std::endl;
+  }
 }
 
 
@@ -114,17 +119,62 @@ void  PmergeMe::createAndComparePairs(std::vector<std::pair<int, int>>& pairVect
 }
 
 // 2. sort paris by first element and create main chain and pend
+void PmergeMe::mergeVector(std::vector<std::pair<int, int>>& pairVect, int left, int mid, int right) {
+    int n1 = mid - left + 1;
+    int n2 = right - mid;
+
+    std::vector<std::pair<int, int>> leftArr(n1);
+    std::vector<std::pair<int, int>> rightArr(n2);
+
+    // Copy data to temporary vectors
+    for (int i = 0; i < n1; i++) {
+        leftArr[i] = pairVect[left + i];
+    }
+    for (int i = 0; i < n2; i++) {
+        rightArr[i] = pairVect[mid + 1 + i];
+    }
+
+    // Merge the temporary arrays back into the main array
+    int i = 0, j = 0, k = left;
+    while (i < n1 && j < n2) {
+        if (leftArr[i].first <= rightArr[j].first) {
+            pairVect[k] = leftArr[i];
+            i++;
+        } else {
+            pairVect[k] = rightArr[j];
+            j++;
+        }
+        k++;
+    }
+
+    // Copy any remaining elements of leftArr
+    while (i < n1) {
+        pairVect[k] = leftArr[i];
+        i++;
+        k++;
+    }
+
+    // Copy any remaining elements of rightArr
+    while (j < n2) {
+        pairVect[k] = rightArr[j];
+        j++;
+        k++;
+    }
+}
+
+void PmergeMe::mergeSortVector(std::vector<std::pair<int, int>>& pairVect, int left, int right) {
+  if (left < right) {
+      int mid = left + (right - left) / 2;
+
+      mergeSortVector(pairVect, left, mid);
+      mergeSortVector(pairVect, mid + 1, right);
+
+      mergeVector(pairVect, left, mid, right);
+  }
+}
+
 // the first element of the second sequence can alreay be inserted at the front of the first sequence
-void PmergeMe::sortPairsByFirstElement(std::vector<std::pair<int, int>>& pairVect) {
-  if (pairVect.empty()) return;
-
-  auto compare = [](const std::pair<int, int>& a, const std::pair<int, int>& b) {
-    return a.first < b.first;
-  };
-  std::sort(pairVect.begin(), pairVect.end(), compare);
-
-  // chreate seperate chains from pairs
-  // the first element of the second sequence can alreay be inserted at the front of the first sequence
+void PmergeMe::createTwoChainsVector(std::vector<std::pair<int, int>>& pairVect) {
   _mainChain.reserve(_mainChain.size() + pairVect.size() + 1);
   _pendElements.reserve(_pendElements.size() + pairVect.size());
 
@@ -154,19 +204,33 @@ void PmergeMe::insertionSortVector() {
       lastIndex = index;
       while (index > prevIndex) {
         if (index < (long)_pendElements.size())
-          insertElemetInMainChainVector(_pendElements[index]);
+          // insertElemetInMainChainVector(_pendElements[index]);
+          binaryInsertVector(_pendElements[index]);
         index--;
       }
     }
   }
 }
 
-// std::lower_bound is used to find the first position in the sorted vector where the given 
-// element can be inserted without violating the sorting order.
-void PmergeMe::insertElemetInMainChainVector(int element) {
- auto pos = std::lower_bound(_mainChain.begin(), _mainChain.end(), element);
-    _mainChain.insert(pos, element);
+void PmergeMe::binaryInsertVector(int element) {
+    int size = _mainChain.size();
+    int low = 0, high = size - 1;
+    int mid;
+
+    while (low <= high) {
+        mid = low + (high - low) / 2;
+        if (_mainChain[mid] == element) {
+            low = mid;
+            break;
+        } else if (_mainChain[mid] < element) {
+            low = mid + 1;
+        } else {
+            high = mid - 1;
+        }
+    }
+    _mainChain.insert(_mainChain.begin() + low, element);
 }
+
 
 // 4. get time sorting vector
 std::chrono::duration<double, std::milli> PmergeMe::getSortingTimeVector() const {
@@ -198,6 +262,71 @@ void  PmergeMe::createAndComparePairs(std::list<std::pair<int, int>>& pairList) 
 
 // 2. sort paris by first element and create main chain and pend
 // the first element of the second sequence can alreay be inserted at the front of the first sequence
+std::list<std::pair<int, int>> PmergeMe::mergeList(const std::list<std::pair<int, int>>& left, const std::list<std::pair<int, int>>& right) {
+    std::list<std::pair<int, int>> result;
+    auto it1 = left.begin();
+    auto it2 = right.begin();
+
+    // Merge the two lists based on the first element of the pairs
+    while (it1 != left.end() && it2 != right.end()) {
+        if (it1->first <= it2->first) {
+            result.push_back(*it1);
+            ++it1;
+        } else {
+            result.push_back(*it2);
+            ++it2;
+        }
+    }
+
+    // Append any remaining elements from the left list
+    while (it1 != left.end()) {
+        result.push_back(*it1);
+        ++it1;
+    }
+
+    // Append any remaining elements from the right list
+    while (it2 != right.end()) {
+        result.push_back(*it2);
+        ++it2;
+    }
+
+    return result;
+}
+
+// Function to perform merge sort on a list of pairs
+std::list<std::pair<int, int>> PmergeMe::mergeSortList(std::list<std::pair<int, int>>& pairList) {
+    if (pairList.size() <= 1) {
+        return pairList;
+    }
+
+    // Split the list into two halves
+    auto mid = pairList.begin();
+    std::advance(mid, pairList.size() / 2);
+
+    std::list<std::pair<int, int>> left(pairList.begin(), mid);
+    std::list<std::pair<int, int>> right(mid, pairList.end());
+
+    // Recursively sort both halves
+    left = mergeSortList(left);
+    right = mergeSortList(right);
+
+    // Merge the two sorted halves
+    return mergeList(left, right);
+}
+
+void PmergeMe::createTwoChainsList(std::list<std::pair<int, int>>& pairList) {
+  _mainChainList.push_back(pairList.front().second);
+  _mainChainList.push_back(pairList.front().first);
+  for (auto it = std::next(pairList.begin()); it != pairList.end(); ++it) {
+    _mainChainList.push_back(it->first);
+    _pendElementsList.push_back(it->second);
+  }
+
+  if (_strangler != -1) {
+    _pendElementsList.push_back(_strangler);
+  }
+}
+
 void  PmergeMe::sortPairsByFirstElement(std::list<std::pair<int, int>>& pairList) {
   pairList.sort([](const std::pair<int, int>& a, const std::pair<int, int>& b) {
     return a.first < b.first;
@@ -232,7 +361,8 @@ void PmergeMe::insertionSortList() {
     }
     while (k > prevIndex) {
       if (k < (long)_pendElementsList.size()) {
-        insertElemetInMainChainList(*pendIt);
+        // insertElemetInMainChainList(*pendIt);
+        binaryInsertList(*pendIt);
         pendIt--;
       }
       k--;
@@ -242,13 +372,25 @@ void PmergeMe::insertionSortList() {
   }
 }
 
-void  PmergeMe::insertElemetInMainChainList(int element) {
-  auto pos = _mainChainList.begin();
-  auto end = _mainChainList.end();
-  while (pos != end && *pos < element) {
-    ++pos;
-  }
-  _mainChainList.insert(pos, element);
+void PmergeMe::binaryInsertList(int element) {
+    auto low = _mainChainList.begin();
+    auto high = _mainChainList.end();
+    auto mid = low;
+    
+    while (std::distance(low, high) > 0) {
+        mid = low;
+        std::advance(mid, std::distance(low, high) / 2);
+        
+        if (*mid == element) {
+            low = mid;
+            break;
+        } else if (*mid < element) {
+            low = ++mid;
+        } else {
+            high = mid;
+        }
+    }
+    _mainChainList.insert(low, element);
 }
 
 // 4. get time sorting list
